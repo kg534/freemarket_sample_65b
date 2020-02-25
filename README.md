@@ -66,7 +66,7 @@
 |category_id|integer|null: false, foreign_key: true|カテゴリーID|
 |brand_id|integer|null: false, foreign_key: true|ブランドID|
 |condition|integer|null: false|商品の状態|
-|Shipping charges|integer|null: false|配送料の負担|
+|shopping_charges|integer|null: false|配送料の負担|
 |delivery_area|integer|null: false|発送元の地域|
 |delivery_date|integer|null: false|発送までの日数|
 |price|integer|null: false|値段|
