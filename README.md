@@ -80,17 +80,23 @@
 - has_one :transcation
 
 ## sub_products table
+|Column|Type|Options|Description|
+|------|----|-------|-----------|
 |products_id|integer|null: false, foreign_key: true|商品ID|
 |image|integer|null: false|画像|
 ## Association
 - belongs_to :product
 
 ## categories table
+|Column|Type|Options|Description|
+|------|----|-------|-----------|
 |name|string|null: false, index: true|カテゴリー名|
 ## Association
 - has_many :products
 
 ## brands table
+|Column|Type|Options|Description|
+|------|----|-------|-----------|
 |name|string|index: true|ブランド名|
 ## Association
 - has_many :products
