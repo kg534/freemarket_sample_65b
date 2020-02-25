@@ -10,7 +10,7 @@
 |last_name|string|null: false|名前|
 |j_family_name|string|null: false|苗字カナ|
 |j_last_name|string|null: false|名前カナ|
-|birthday|string|null: false|生年月日|
+|birthday|date|null: false|生年月日|
 |postal_code|string|null: false|郵便番号|
 |prefecture|integer|null: false|都道府県|
 |city|string|null: false|市区町村|
