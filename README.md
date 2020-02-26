@@ -28,6 +28,7 @@
 |city|string|null: false|市区町村|
 |address_number|string|null: false|番地|
 |building|string||建物名|
+|user_id|integer|null: false, foreign_key: true|ユーザーID|
 
 ## Association
 - belongs_to :user
@@ -57,7 +58,7 @@
 |year|integer|null: false|有効期限（月）|
 |month|integer|null: false|有効期限（日）|
 |security_code|integer|null: false|セキュリティコード|
-- has_one :user
+- belongs_to :user
 
 ## transcation table
 |Column|Type|Options|Description|
