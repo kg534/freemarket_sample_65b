@@ -18,7 +18,7 @@
 - has_many :products
 - has_one :card
 - has_one :shopping_address
-- has_one :adress
+- has_one :address
 
 ## address table
 |Column|Type|Options|Description|
