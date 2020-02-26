@@ -11,17 +11,26 @@
 |j_family_name|string|null: false|苗字カナ|
 |j_last_name|string|null: false|名前カナ|
 |birthday|date|null: false|生年月日|
-|postal_code|string|null: false|郵便番号|
-|prefecture|integer|null: false|都道府県|
-|city|string|null: false|市区町村|
-|address_number|string|null: false|番地|
-|building|string||建物名|
 |phone_number|string||電話番号|
+
 ## Association
 - has_many :transcations
 - has_many :products
 - has_one :card
 - has_one :shopping_address
+- has_one :adress
+
+## address table
+|Column|Type|Options|Description|
+|------|----|-------|-----------|
+|postal_code|string|null: false|郵便番号|
+|prefecture|integer|null: false|都道府県|
+|city|string|null: false|市区町村|
+|address_number|string|null: false|番地|
+|building|string||建物名|
+
+## Association
+- belongs_to :user
 
 ## shopping_address table
 |Column|Type|Options|Description|
@@ -79,11 +88,11 @@
 - has_many :sub_products
 - has_one :transcation
 
-## sub_products table
+## images table
 |Column|Type|Options|Description|
 |------|----|-------|-----------|
-|products_id|integer|null: false, foreign_key: true|商品ID|
-|image|integer|null: false|画像|
+|product_id|integer|null: false, foreign_key: true|商品ID|
+|image|string|null: false|画像|
 ## Association
 - belongs_to :product
 
