@@ -24,9 +24,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
       flash.now[:alert] = @address.errors.full_messages
       render :new_address and return
     end
+    
     @user.build_address(@address.attributes)
-    @user.save
-    sign_in(:user, @user)
+    if @user.save
+      sign_in(:user, @user)
+    else 
+      render :create and return
+    end
   end
 
   protected
