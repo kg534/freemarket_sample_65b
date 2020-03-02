@@ -1,26 +1,51 @@
-%h2 住所情報登録
-= form_for @address do |f|
-  = render "devise/shared/error_messages", resource: @address
-  .field
-    = f.label "郵便番号"
-    %br/
-    = f.text_field :postal_code
-  .field
-    = f.label "都道府県"
-    %br/
-    = f.text_field :prefecture
-  .field
-    = f.label "市区町村"
-    %br/
-    = f.text_field :city
-  .field
-    = f.label "番地"
-    %br/
-    = f.text_field :address_number
-  .field
-    = f.label "建物名"
-    %br/
-    = f.text_field :building
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+.contents
+  .divise--header
+    .devise--header__logo
+      = image_tag 'logo.png'
+  .devise--main
+    .devise--main__container
+      .devise--main__container__head
+        %h2 住所情報入力
+      .devise--main__container__form
+        = form_for @address do |f|
+          = render "devise/shared/error_messages", resource: @address
+          .form--group
+            = f.label "郵便番号"
+            %span 必須
+            %br
+            = f.text_field :postal_code, placeholder: "例）1234567", class: 'register--postal__code'
+          .form--group
+            = f.label "都道府県"
+            %span 必須
+            %br
+            = f.select :prefecture, Address.prefectures.keys
+          .form--group
+            = f.label "市区町村"
+            %span 必須
+            %br
+            = f.text_field :city, placeholder: "例）福岡市中央区", class: 'register--city'
+          .form--group
+            = f.label "番地"
+            %span 必須
+            %br
+            = f.text_field :address_number, placeholder: "例）荒戸2丁目", class: 'register--address__number'
+          .form--group
+            = f.label "建物名"
+            %span.default 任意
+            %br
+            = f.text_field :building, placeholder: "例）グランドヒルズ 111号", class: 'register--building'
+          .form--group
+            %p.form--submit__description 「登録する」のボタンを押すことにより、利用規約に同意したものとみなします
+            = f.submit "登録する", class: 'register--submit__btn'
+  .devise--footer
+    %nav
+      %ul 
+        %li 
+          プライバシーポリシー
+        %li 
+          FURIMA利用規約
+        %li 
+          特定商取引に関する表記   
+    .devise--footer_logo
+      = image_tag 'logo-white.png'
+      %p.logo--link @FURIMA
