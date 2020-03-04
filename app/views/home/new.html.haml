@@ -20,7 +20,7 @@
           %label{for: 'product--detail'} 説明文
           %span 必須
           %br
-          %textarea.product--detail{name: 'detail', placeholder: '商品の説明（色、素材、重さ、定価、注意点など）', :cols => "70", :rows => "5"} 
+          %textarea.product--detail{name: 'detail', placeholder: '商品の説明（色、素材、重さ、定価、注意点など）', cols: "70", rows: "5"} 
       .product--main__container__details
         %p.product--form__description 商品の詳細
         .form--group
@@ -28,20 +28,20 @@
           %span 必須
           %br
           %select{name: 'category_id', class: 'product--category'}>
-            %option{:value => ""} 選択してください
-            %option{:value => "1"} レディース
-            %option{:value => "2"} メンズ
-            %option{:value => "3"} ベビー・キッズ 
-            %option{:value => "4"} インテリア・住まい・小物
-            %option{:value => "5"} 本・音楽・ゲーム
-            %option{:value => "6"} おもちゃ・ホビー・グッズ
-            %option{:value => "7"} コスメ・香水・美容
-            %option{:value => "8"} 家電・スマホ・カメラ
-            %option{:value => "9"} スポーツ・レジャー
-            %option{:value => "10"} ハンドメイド
-            %option{:value => "11"} チケット
-            %option{:value => "12"} 自動車・オートバイ
-            %option{:value => "13"} その他
+            %option{value: ""} 選択してください
+            %option{value: "1"} レディース
+            %option{value: "2"} メンズ
+            %option{value: "3"} ベビー・キッズ 
+            %option{value: "4"} インテリア・住まい・小物
+            %option{value: "5"} 本・音楽・ゲーム
+            %option{value: "6"} おもちゃ・ホビー・グッズ
+            %option{value: "7"} コスメ・香水・美容
+            %option{value: "8"} 家電・スマホ・カメラ
+            %option{value: "9"} スポーツ・レジャー
+            %option{value: "10"} ハンドメイド
+            %option{value: "11"} チケット
+            %option{value: "12"} 自動車・オートバイ
+            %option{value: "13"} その他
         .form--group
           %label{for: 'product--brand'} ブランド
           %span.default 任意
@@ -52,13 +52,13 @@
           %span 必須
           %br
           %select{name: 'condition', class: 'product--condition'}>
-            %option{:value => ""} 選択してください
-            %option{:value => "1"} 新品、未使用
-            %option{:value => "2"} 未使用に近い
-            %option{:value => "3"} 目立った傷や汚れなし
-            %option{:value => "4"} やや傷や汚れなし
-            %option{:value => "5"} 傷や汚れなし
-            %option{:value => "6"} 全体的に状態が悪い
+            %option{value: ""} 選択してください
+            %option{value: "1"} 新品、未使用
+            %option{value: "2"} 未使用に近い
+            %option{value: "3"} 目立った傷や汚れなし
+            %option{value: "4"} やや傷や汚れなし
+            %option{value: "5"} 傷や汚れなし
+            %option{value: "6"} 全体的に状態が悪い
       .product--main__container__delivery
         %p.product--form__description 発送について
         .form--group
@@ -66,26 +66,26 @@
           %span 必須
           %br
           %select{name: 'shopping_charges', class: 'product--shopping__charges'}>
-            %option{:value => ""} 選択してください
-            %option{:value => "1"} 送料込み(出品者負担)
-            %option{:value => "2"} 着払い(購入者負担)
+            %option{value: ""} 選択してください
+            %option{value: "1"} 送料込み(出品者負担)
+            %option{value: "2"} 着払い(購入者負担)
         .form--group
           %label{for: 'product--delivery__area'} 発送元の地域
           %span 必須
           %br
           %select{name: 'delivery_area', class: 'product--delivery__area'}>
-            %option{:value => ""} 選択してください
-            %option{:value => "1"} 北海道
-            %option{:value => "2"} 福岡県
+            %option{value: ""} 選択してください
+            %option{value: "1"} 北海道
+            %option{value: "2"} 福岡県
         .form--group
           %label{for: 'product--delivery__date'} 発送までの日数
           %span 必須
           %br
           %select{name: 'delivery_date', class: 'product--delivery__date'}>
-            %option{:value => ""} 選択してください
-            %option{:value => "1"} 1~2日で配送
-            %option{:value => "2"} 2~3日で配送
-            %option{:value => "3"} 4~7日で配送
+            %option{value: ""} 選択してください
+            %option{value: "1"} 1~2日で配送
+            %option{value: "2"} 2~3日で配送
+            %option{value: "3"} 4~7日で配送
       .product--main__container__price
         %p.product--form__description 価格（¥300〜¥9,999,999）
         .form--group
