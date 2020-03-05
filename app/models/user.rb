@@ -9,6 +9,7 @@ class User < ApplicationRecord
   validate :zenkaku_j_lastname
   validate :zenkaku_j_firstname
   has_one :address
+  has_many :products
   
   def zenkaku_last_name
     if last_name !~/^[^ -~｡-ﾟ]*$/ 

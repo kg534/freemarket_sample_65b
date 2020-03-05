@@ -9,7 +9,7 @@
 }
 
 @mixin product-form-select{
-  width: 610px;
+  width: 612px;
   height: 48px;
   margin: 8px 0 0;
   padding-left: 10px;
@@ -54,7 +54,7 @@
       }
       .product--image{
         margin-top: 40px;
-        width: 610px;
+        width: 609px;
         height: 149px;
         border-style: dotted;
         border-color: #ccc;
@@ -132,13 +132,13 @@
         padding: 4px 4px;
         margin: 0 0 0 8px;
       }
-      .product--category{
+      #product_category_id{
         @include product-form-select;
       }
       .product--brand{
         @include product-form-text_field;
       }
-      .product--condition{
+      #product_condition{
         @include product-form-select;
       }
     }
@@ -170,13 +170,13 @@
         padding: 4px 4px;
         margin: 0 0 0 8px;
       }
-      .product--shopping__charges{
+      #product_shopping_charges{
         @include product-form-select;
       }
-      .product--delivery__area{
+      #product_delivery_area{
         @include product-form-select;
       }
-      .product--delivery__date{
+      #product_delivery_date{
         @include product-form-select;
       }
     }
@@ -228,7 +228,7 @@
     }
     &__submit{
       margin: 0 auto;
-      padding: 80px 40px;
+      padding: 40px 40px;
       p.product--form__description{
         color: #888;
         font-size: 14px;
