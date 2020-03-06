@@ -7,7 +7,7 @@ FactoryBot.define do
     delivery_area { 1 }
     delivery_date { 1 }
     price { 10 }
-    status { 0 }
+    status { 1 }
     category
     brand
     user
