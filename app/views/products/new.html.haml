@@ -16,11 +16,10 @@
               %span 必須
               #image-box
                 = f.fields_for :images do |image|
-                  .js-file_group{"data-index" => "#{image.index}"}
+                  .js-file_group{"data-index": "#{image.index}"}
                     = image.file_field :src, class: 'js-file'
                     %br/
                     %span.js-remove 削除
-              -# .product--image
         .product--main__container__description
           .form--group
             = f.label "商品名"
