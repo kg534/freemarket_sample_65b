@@ -37,7 +37,8 @@
             = f.label "カテゴリー"
             %span 必須
             %br
-            = f.select :category_id, Category.category_ids.keys
+            -# = f.select :category_id, Category.category_ids.keys
+            = f.collection_select :category_id, Category.all, :id, :name
           .form--group
             = f.label "ブランド"
             %span.default 任意
