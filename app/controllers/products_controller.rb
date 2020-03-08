@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, except: [:index, :new, :create]
+  before_action :set_brand, only: [:create, :update]
+
   def index
     @products = Product.includes(:images).order('created_at DESC')
   end
@@ -12,12 +14,10 @@ class ProductsController < ApplicationController
 
   def create
     @category = Category.find_by(id: category_params[:category_id])
-    brand = brand_params[:brand_attributes]
-    @brand = Brand.find_by(name: brand[:name])
 
-    if brand[:name] == "" 
+    if @brand[:name] == "" 
       @product = Product.new(product_no_brand_params)
-    elsif @brand != nil
+    elsif @brand_value != nil
       @product = Product.new(product_params_brand_id)
     else
       @product = Product.new(product_params)
@@ -38,13 +38,11 @@ class ProductsController < ApplicationController
 
   def update
     @category = Category.find_by(id: category_params[:category_id])
-    brand = brand_params[:brand_attributes]
-    @brand = Brand.find_by(name: brand[:name])
 
-    if brand[:name] == ""  
+    if @brand[:name] == ""  
       @product.update(product_no_brand_params) 
       redirect_to root_path
-    elsif @brand != nil
+    elsif @brand_value != nil
       @product.update(product_params_brand_id)
       redirect_to root_path
     elsif @product.update(product_params) 
@@ -60,6 +58,11 @@ class ProductsController < ApplicationController
   end
 
   private
+  def set_brand
+    @brand = brand_params[:brand_attributes]
+    @brand_value = Brand.find_by(name: @brand[:name])
+  end
+
   def set_product
     @product = Product.find(params[:id])
   end
@@ -81,6 +84,6 @@ class ProductsController < ApplicationController
   end
 
   def product_params_brand_id
-    params.require(:product).permit(:name, :detail, :condition, :shopping_charges, :delivery_area, :delivery_date, :price, :status, images_attributes: [:src, :_destroy, :id]).merge(user_id: current_user.id, category_id: @category.id, brand_id: @brand[:id])
+    params.require(:product).permit(:name, :detail, :condition, :shopping_charges, :delivery_area, :delivery_date, :price, :status, images_attributes: [:src, :_destroy, :id]).merge(user_id: current_user.id, category_id: @category.id, brand_id: @brand_value[:id])
   end
 end
