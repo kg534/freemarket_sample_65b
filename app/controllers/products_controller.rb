@@ -14,7 +14,7 @@ class ProductsController < ApplicationController
     @category = Category.find_by(id: category_params[:category_id])
     @product = Product.new(product_params)
 
-    if @category.name != "選択してください" && @product.save
+    if @product.save
       redirect_to root_path
     else  
       render :new
@@ -30,7 +30,7 @@ class ProductsController < ApplicationController
   def update
     @category = Category.find_by(id: category_params[:category_id])
     
-    if @category.name != "選択してください" && @product.update(product_params) 
+    if @product.update(product_params) 
       redirect_to root_path
     else 
       render :edit
