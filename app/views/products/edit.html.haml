@@ -3,8 +3,7 @@
     .devise--header__logo
       = image_tag 'logo.png'
   .product--main
-    - if current_user.id == @product.user.id
-      = render partial: 'form', locals: { product: @product }
+    = render partial: 'form', locals: { product: @product }
   .devise--footer
     %nav
       %ul 
