@@ -33,6 +33,7 @@
       font-size: 22px;
       border-bottom: solid 1px #f5f5f5;
       height: 219px;
+      max-height: 400px;
       padding: 40px;
       text{
         font-weight: 600;
@@ -49,18 +50,33 @@
         margin: 0 0 0 8px;
         float: left;
       }
-      .file--default{
+      .js-file{
         display: none;
       }
-      .product--image{
-        margin-top: 40px;
-        width: 609px;
-        height: 149px;
+      .js-file_group{
+        width: 114px;
+        height: 30px;
         border-style: dotted;
         border-color: #ccc;
         border-width: 2px;
         background-color: #eeeeee; 
         cursor: pointer;
+        float: left;
+        position: relative;
+        margin: 3px
+      }
+      .js-remove{
+        color: #3CCACE;
+        font-size: 15px;
+        position: absolute;
+        top: 4.5px;
+        left: 43px;
+      }
+      #previews{
+        display: flex;
+      }
+      img.js-file_image{
+        margin: 12px;
       }
     }
     &__description{

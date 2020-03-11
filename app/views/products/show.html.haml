@@ -5,65 +5,53 @@
   .product--main
     .product--main__container
       .product--main__container__head
-        .form--group
-          %label 
-          %text 出品画像
-          #image-box
-            - @product.images.each_with_index do |image, i|
-              = image_tag image.src.url, data: { index: i }, width: "100", height: "100"
+        %label 
+        %text 出品画像
+        #image-box
+          - @product.images.each_with_index do |image, i|
+            = image_tag image.src.url, data: { index: i }, width: "100", height: "100"
       .product--main__container__description
-        .form--group
-          %label 商品名
-          %br
-          .product--name
-            = @product.name
-        .form--group
-          %label 説明文
-          %br
-          .product--detail
-            = @product.detail
+        %label 商品名
+        %br
+        .product--name
+          = @product.name
+        %label 説明文
+        %br
+        .product--detail
+          = @product.detail
       .product--main__container__details
         %p.product--form__description 商品の詳細
-        .form--group
-          %label カテゴリー
-          %br
-          = @product.category.name
-        .form--group
-          %label ブランド
-          %br
-          .product--brand
-            - if @product.brand_id?
-              = @product.brand.name
-        .form--group
-          %label 商品の状態
-          %br
-          = @product.condition
+        %label カテゴリー
+        %br
+        = @product.category.name
+        %label ブランド
+        %br
+        .product--brand
+          - if @product.brand_id?
+            = @product.brand.name
+        %label 商品の状態
+        %br
+        = @product.condition
       .product--main__container__delivery
         %p.product--form__description 発送について
-        .form--group
-          %label 配送料の負担
-          %br
-          = @product.shopping_charges
-        .form--group
-          %label 発送元の地域
-          %br
-          = @product.delivery_area
-        .form--group
-          %label 発送までの日数
-          %br
-          = @product.delivery_date
-      .product--main__container__price
+        %label 配送料の負担
+        %br
+        = @product.shopping_charges
+        %label 発送元の地域
+        %br
+        = @product.delivery_area
+        %label 発送までの日数
+        %br
+        = @product.delivery_date
         %p.product--form__description 価格（¥300〜¥9,999,999）
-        .form--group
-          %label 販売価格
-          %text ¥
-          .product--price
-            = @product.price
-        .form--group
-          %label 取引状態
-          .product--price
-            = @product.status
-        %p.product--form__note 販売手数料（10%）
+        %label 販売価格
+        %text ¥
+        .product--price
+          = @product.price
+        %label 取引状態
+        .product--price
+          = @product.status
+      %p.product--form__note 販売手数料（10%）
       .product--main__container__submit
       - if @product.user.id == current_user.id
         = link_to "編集", edit_product_path(@product)

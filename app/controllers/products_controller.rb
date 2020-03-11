@@ -25,7 +25,14 @@ class ProductsController < ApplicationController
     
     if @product.save
       redirect_to root_path
-    else  
+    else
+      image = image_params[:images_attributes]
+      if image == nil 
+        @product.images.new
+      end
+      if @brand[:name] == "" 
+        @product.build_brand
+      end
       render :new
     end
   end
@@ -34,12 +41,15 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    if @product[:brand_id] == nil
+      @product.build_brand
+    end
   end
 
   def update
     @category = Category.find_by(id: category_params[:category_id])
 
-    if @brand[:name] == ""  
+    if @brand[:name] == "" && @brand_value == nil
       @product.update(product_no_brand_params) 
       redirect_to root_path
     elsif @brand_value != nil
@@ -63,7 +73,11 @@ class ProductsController < ApplicationController
   private
   def set_brand
     @brand = brand_params[:brand_attributes]
-    @brand_value = Brand.find_by(name: @brand[:name])
+    if @brand != nil
+      @brand_value = Brand.find_by(name: @brand[:name])
+    else
+      @brand_value = nil
+    end
   end
 
   def set_product
@@ -76,6 +90,10 @@ class ProductsController < ApplicationController
 
   def brand_params
     params.require(:product).permit(brand_attributes: [:id, :name])
+  end
+
+  def image_params
+    params.require(:product).permit(images_attributes: [:src, :_destroy, :id])
   end
 
   def product_no_brand_params
