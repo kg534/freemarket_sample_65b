@@ -421,7 +421,6 @@ $maincolor: #3CCACE;
       justify-content: center;
       margin: 20px auto 0;
       &__btn-apple{
-        margin-right: 10px;
         img {
           @include apple
         }
@@ -500,6 +499,3 @@ $maincolor: #3CCACE;
       width: 60%;
     }
   }
-
-
-

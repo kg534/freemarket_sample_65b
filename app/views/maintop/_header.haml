@@ -2,20 +2,19 @@
   .header-inner
     .header-inner__main
       %h1.header-inner__main__logo
-        %a{ :href => '/'}
-          %img{src: "/assets/logo.png"}
+        = link_to image_tag('/assets/logo.png'), "/"
       %form.header-inner__main__searchbox
         %input.header-inner__main__searchbox__input{:name => "key", :placeholder => "キーワードから探す", :type => "text", :value => ""}
         %button.header-inner__main__searchbox__iconbox{ :name => "search-button"}
-          %img.header-inner__main__searchbox__iconbox__image{src: "/assets/icon-search 1.png"}
+          = image_tag('/assets/icon-search 1.png', :class => "header-inner__main__searchbox__iconbox__image")
     .header-inner__navi
       %ul.header-inner__navi__lists-left
         %li.header-inner__navi__lists-left__category
-          %a{:id =>"category-btn", :href =>"#"}カテゴリー
+          = link_to "カテゴリー", "#", :id => "list"
         %li.header-inner__navi__lists-left__brand
-          %a{:id =>"brand-btn", :href =>"#"}ブランド
+          = link_to "ブランド", "#", :id => "brand-btn"
       %ul.header-inner__navi__lists-right
         %li.header-inner__navi__lists-right__login
-          %a{:id =>"category-btn", :href =>"#"}ログイン
+          = link_to "ログイン", "#"
         %li.header-inner__navi__lists-right__new
-          %a{:id =>"category-btn", :href =>"#"}新規会員登録
+          = link_to "新規会員登録", "#"
