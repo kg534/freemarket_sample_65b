@@ -1,0 +1,20 @@
+.contents
+  .divise--header
+    .devise--header__logo
+      = image_tag 'logo.png'
+  .complete--main
+    .complete--main__container
+      %h2 登録が完了しました
+      = link_to "トップへ戻る", root_path
+  .devise--footer
+    %nav
+      %ul 
+        %li 
+          プライバシーポリシー
+        %li 
+          FURIMA利用規約
+        %li 
+          特定商取引に関する表記   
+    .devise--footer_logo
+      = image_tag 'logo-white.png'
+      %p.logo--link @FURIMA

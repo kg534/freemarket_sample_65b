@@ -1,0 +1,73 @@
+.contents
+  .divise--header
+    .devise--header__logo
+      = image_tag 'logo.png'
+  .product--main
+    .product--main__container
+      .product--main__container__head
+        %label 
+        %text 出品画像
+        #image-box
+          - @product.images.each_with_index do |image, i|
+            = image_tag image.src.url, data: { index: i }, width: "100", height: "100"
+      .product--main__container__description
+        %label 商品名
+        %br
+        .product--name
+          = @product.name
+        %label 説明文
+        %br
+        .product--detail
+          = @product.detail
+      .product--main__container__details
+        %p.product--form__description 商品の詳細
+        %label カテゴリー
+        %br
+        = @product.category.name
+        %label ブランド
+        %br
+        .product--brand
+          - if @product.brand_id?
+            = @product.brand.name
+        %label 商品の状態
+        %br
+        = @product.condition
+      .product--main__container__delivery
+        %p.product--form__description 発送について
+        %label 配送料の負担
+        %br
+        = @product.shopping_charges
+        %label 発送元の地域
+        %br
+        = @product.delivery_area
+        %label 発送までの日数
+        %br
+        = @product.delivery_date
+        %p.product--form__description 価格（¥300〜¥9,999,999）
+        %label 販売価格
+        %text ¥
+        .product--price
+          = @product.price
+        %label 取引状態
+        .product--price
+          = @product.status
+      %p.product--form__note 販売手数料（10%）
+      .product--main__container__submit
+      - if @product.user.id == current_user.id
+        = link_to "編集", edit_product_path(@product)
+        = link_to "削除", product_path(@product), method: :delete
+      - else
+        = link_to "商品購入", '#' 
+      = link_to "もどる", root_path
+  .devise--footer
+    %nav
+      %ul 
+        %li 
+          プライバシーポリシー
+        %li 
+          FURIMA利用規約
+        %li 
+          特定商取引に関する表記   
+    .devise--footer_logo
+      = image_tag 'logo-white.png'
+      %p.logo--link @FURIMA

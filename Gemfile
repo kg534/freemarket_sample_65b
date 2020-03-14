@@ -5,8 +5,8 @@ ruby '2.5.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.1'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# Use mysql as the database for Active Record
+gem 'mysql2', '>= 0.3.18', '< 0.6.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -44,6 +44,10 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'pry-rails'
+
+  gem 'rspec-rails', '~> 3.7.2'
+  gem 'factory_bot_rails'
 end
 
 group :development do
@@ -73,3 +77,11 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "haml-rails", "~> 2.0"
 
 gem "font-awesome-sass"
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog-aws'
+
+gem 'devise'
+gem 'haml-rails' 
+gem 'erb2haml'
+gem 'jquery-rails'
