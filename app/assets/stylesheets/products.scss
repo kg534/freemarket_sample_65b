@@ -1,5 +1,5 @@
 @mixin product-form-text_field{
-  width: 600px;
+  width: 620px;
   height: 48px;
   margin: 8px 0 0;
   padding-left: 10px;
@@ -9,7 +9,7 @@
 }
 
 @mixin product-form-select{
-  width: 612px;
+  width: 620px;
   height: 48px;
   margin: 8px 0 0;
   padding-left: 10px;
@@ -19,14 +19,27 @@
   background-color: #fff;
 }
 
+.error_explanation{
+  color: red;
+  margin: 10px 0;
+  float: left;
+  font-size: 15px; 
+}
+.error_explanation-price{
+  color: red;
+  margin: 10px 0;
+  float: right;
+  font-size: 15px; 
+}
+
 .product--main{
-  height: 2199px;
+  height: 2200px;
   width: 100%;
   background-color: menu;
   &__container{
     background-color: white;
     width: 700px;
-    height: 2199px;
+    height: 2200px;
     margin: 0 auto;
     &__head{
       text-align: center;
@@ -80,16 +93,17 @@
       }
     }
     &__description{
-      height: 310px;
+      height: 400px;
       margin: 0 auto;
       padding: 40px;
       border-bottom: solid 1px #f5f5f5;
-      .form--group{
-        width: 600px;
-        height: 99px;
+      .product__form--group{
+        width: 620px;
+        height: 100px;
+        margin-bottom: 25px;
       }
-      .form--group label{
-        font-weight: 600;
+      .product__form--group label{
+        font-weight: 620;
         font-size: 14px;
         color: #333333;
       }
@@ -110,10 +124,11 @@
         border-radius: 4px;
         border: 1px solid #ccc;
         font-size: 15px; 
+        width: 620px;
       }
     }
     &__details{
-      height: 400px;
+      height: 460px;
       margin: 0 auto;
       padding: 40px;
       border-bottom: solid 1px #f5f5f5;
@@ -123,11 +138,12 @@
         font-weight: bold;
         margin-bottom: 20px;
       }
-      .form--group{
-        width: 600px;
-        height: 99px;
+      .product__form--group{
+        width: 620px;
+        height: 100px;
+        margin-bottom: 25px;
       }
-      .form--group label{
+      .product__form--group label{
         font-weight: 600;
         font-size: 14px;
         color: #333333;
@@ -159,7 +175,7 @@
       }
     }
     &__delivery{
-      height: 400px;
+      height: 460px;
       margin: 0 auto;
       padding: 40px;
       border-bottom: solid 1px #f5f5f5;
@@ -169,11 +185,12 @@
         font-weight: bold;
         margin-bottom: 20px;
       }
-      .form--group{
-        width: 600px;
-        height: 99px;
+      .product__form--group{
+        width: 620px;
+        height: 100px;
+        margin-bottom: 25px;
       }
-      .form--group label{
+      .product__form--group label{
         font-weight: 600;
         font-size: 14px;
         color: #333333;
@@ -207,11 +224,13 @@
         font-weight: bold;
         margin-bottom: 20px;
       }
-      .form--group{
-        width: 610px;
-        height: 99px;
+      .product__form--group{
+        width: 620px;
+        height: 100px;
+        margin-bottom: 25px;
+        position: relative;
       }
-      .form--group label{
+      .product__form--group label{
         font-weight: 600;
         font-size: 14px;
         color: #333333;
@@ -236,6 +255,9 @@
         font-size: 15px; 
         float: right;
         text-align: right;
+        position: absolute;
+        top: 0%;
+        left: 52%;
       }
       p.product--form__note{
         color: #333333;

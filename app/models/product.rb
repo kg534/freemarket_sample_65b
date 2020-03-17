@@ -2,16 +2,17 @@ class Product < ApplicationRecord
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
   validates_associated :images
-  validates :images, presence: true
+  validates :images, presence: { message: 'がありません' }
 
   belongs_to :category
-  
+
   belongs_to :brand, optional: true
   accepts_nested_attributes_for :brand, allow_destroy: true
   
   belongs_to :user
   
-  validates :name, :detail, :condition, :shopping_charges, :delivery_area, :delivery_date, :price, :status, :category_id, :user_id, presence: true
+  validates :name, :detail, :price, :user_id, presence: { message: '入力してください' }
+  validates :condition, :shopping_charges, :delivery_area, :delivery_date, :status, :category_id, presence: { message: '選択してください' }
 
   enum delivery_area: {
     北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,
