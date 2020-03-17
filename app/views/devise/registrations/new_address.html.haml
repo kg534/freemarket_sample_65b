@@ -2,33 +2,40 @@
   .divise--header
     .devise--header__logo
       = image_tag 'logo.png'
-  .devise--main
-    .devise--main__container
+  .devise--address
+    .devise--main__container--address
       .devise--main__container__head
         %h2 住所情報入力
       .devise--main__container__form
         = form_for @address do |f|
-          = render "devise/shared/error_messages", resource: @address
           .form--group
             = f.label "郵便番号"
             %span 必須
             %br
             = f.text_field :postal_code, placeholder: "例）1234567", class: 'register--postal__code'
+            .error_explanation-user
+              = @address.errors.full_messages_for(:postal_code).first
           .form--group
             = f.label "都道府県"
             %span 必須
             %br
-            = f.select :prefecture, Address.prefectures.keys
+            = f.select :prefecture, Address.prefectures.keys, prompt: '選択してください'
+            .error_explanation-user
+              = @address.errors.full_messages_for(:prefecture).first
           .form--group
             = f.label "市区町村"
             %span 必須
             %br
             = f.text_field :city, placeholder: "例）福岡市中央区", class: 'register--city'
+            .error_explanation-user
+              = @address.errors.full_messages_for(:city).first
           .form--group
             = f.label "番地"
             %span 必須
             %br
             = f.text_field :address_number, placeholder: "例）荒戸2丁目", class: 'register--address__number'
+            .error_explanation-user
+              = @address.errors.full_messages_for(:address_number).first
           .form--group
             = f.label "建物名"
             %span.default 任意

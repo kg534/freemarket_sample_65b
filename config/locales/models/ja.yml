@@ -1,0 +1,39 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      address: 住所
+      product: 商品
+      image: 画像
+      category: カテゴリー
+    attributes:
+      user:
+        nickname: ニックネーム
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード(確認)
+        last_name: 姓
+        first_name: 名
+        j_last_name: 姓カナ
+        j_first_name: 名カナ
+        birthday: 生年月日
+        phone_number: 電話番号
+      address:
+        postal_code: 郵便番号
+        prefecture: 都道府県
+        city: 市区町村
+        address_number: 番地
+      product: 
+        name: ""
+        detail: ""
+        condition: ""
+        shopping_charges: ""
+        delivery_area: ""
+        delivery_date: ""
+        price: ""
+        category_id: ""
+        images: :activerecord.models.image
+      image:
+        src: 画像
+      category:
+        name: カテゴリー
