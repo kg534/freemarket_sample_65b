@@ -10,7 +10,7 @@ $(document).on('turbolinks:load', function() {
   }
 
   const buildImg = (index, url)=> {
-    const html = `<img data-index="${index}" src="${url}" width="100px" height="100px" class="js-file_image">`;
+    const html = `<img data-index="${index}" src="${url}" width="96px" height="100px" class="js-file_image">`;
     return html;
   }
   
@@ -20,6 +20,14 @@ $(document).on('turbolinks:load', function() {
   fileIndex.splice(0, lastIndex);
   
   $('.hidden-destroy').hide();
+
+  $(document)
+    .on('mouseover', '.js-remove', function(){
+      $('.js-file').prop('disabled', true);
+    })
+    .on('mouseout', '.js-remove', function(){
+    $('.js-file').prop('disabled', false); 
+  });
 
   $('#image-box').on('change', '.js-file', function(e) {
     const targetIndex = $(this).parent().data('index');
@@ -39,8 +47,8 @@ $(document).on('turbolinks:load', function() {
       'color':'#3CCACE',
       'font-size':'15px',
       'position':'absolute',
-      'top':'4.5px',
-      'left':'43px'
+      'top':'2.5px',
+      'left':'40px'
     });
     
     $('#previews').css({

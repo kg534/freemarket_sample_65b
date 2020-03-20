@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  root to: 'maintop#index'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
   }
@@ -7,5 +6,7 @@ Rails.application.routes.draw do
     get 'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
   end
+  get 'maintops', to: 'maintop#index'
+  root 'products#index'
   resources :products
 end

@@ -84,6 +84,7 @@ gem 'fog-aws'
 gem 'devise'
 gem 'haml-rails' 
 gem 'erb2haml'
-gem 'jquery-rails'
 
 gem 'rails-i18n'
+
+gem 'jquery-rails'
