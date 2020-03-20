@@ -7,5 +7,10 @@ Rails.application.routes.draw do
     post 'addresses', to: 'users/registrations#create_address'
   end
   root to: "products#index"
-  resources :products
+  resources :products do
+    collection do
+      get 'search'
+    end
+  end
+  resources :users, only: :show
 end

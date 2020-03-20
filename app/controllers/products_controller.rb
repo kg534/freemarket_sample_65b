@@ -60,6 +60,10 @@ class ProductsController < ApplicationController
     end
   end
 
+  def search
+    @products = Product.search(params[:keyword])
+  end
+
   private
   def set_brand
     @brand = brand_params[:brand_attributes]

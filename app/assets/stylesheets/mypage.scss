@@ -1,0 +1,188 @@
+// paddingとborderをwidth煮含める
+* {
+  box-sizing: border-box;
+}
+// フォント指定
+body{
+  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// @mixin定義
+// ナビゲーション リンク部分（共通）
+@mixin nav_link{
+  color: #333;
+  text-decoration: none;
+  line-height: 32px;
+  font-weight: 400;
+}
+
+// ナビゲーション ブロック(共通)
+@mixin nav_block{
+  display: flex;
+  line-height: 38px;
+}
+
+
+// 左ナビゲーション アイコン部分
+@mixin left_nav_icon{
+  color: #3CCACE;
+  margin-right: 4px;
+}
+
+// 右ナビゲーション アイコン部分
+@mixin right_nav_icon{
+  color: #ccc;
+  font-size: 18px;
+  margin-right: 4px;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+//ヘッダー
+.header{
+  padding: 0 60px;
+  &__inner{
+    max-width: 1040px;
+    min-height: 82px;
+    width: 100%;
+    margin: 0 auto;
+    padding:15px 0 0;
+    // FURIMAロゴ 検索フォーム BOX
+    &--search{
+      position: relative;
+      display: flex;
+      align-items: center;
+      //FURIMAロゴ
+      .title{
+        padding-bottom: 10px;
+        margin-right: 30px;
+        border-radius: 4px;
+        .link_top_page{
+          width: 140px;
+          display: block;
+          .furima_icon{
+            width: 100%;
+            vertical-align: bottom;
+          }
+        }
+      }
+      //検索フォーム
+      .search_box{
+        width: 100%;
+        margin: auto;
+        &__form{
+          width: 100%;
+          display: flex;
+          margin-bottom: 5px;
+          &--text{
+            height: 36px;
+            width: calc(100% - 26px);
+            padding: 0 0 0 5px;
+          }
+          &--btn{
+            background-color:#3CCACE;
+            width: 36px;
+            border: 0px;
+            padding: 8px;
+            cursor: pointer;
+            .search_box__icon{
+              margin: 0px;
+              padding: 0px;
+              &--search{
+                width: 100%;
+                vertical-align: bottom;
+              }
+            }
+          }
+        }
+      }  
+    }
+    // ヘッダーナビ
+    &--nav{
+      font-size: 14px;
+      margin-bottom: 10px;
+      display: flex;
+      height: 44px;
+      //ヘッダーナビ 左側
+      .nav_left{
+        display: flex;
+        position:relative;
+        &__category{
+          @include nav_block;
+          padding-right: 30px;
+          padding-left: 0px;
+          &--link{
+            @include nav_link;
+            .fas.fa-list-ul{
+              @include left_nav_icon;
+            }
+          }
+        }
+        &__brand{
+          @include nav_block;
+          padding-left: 16px;
+          &--link{
+            @include nav_link;
+            padding-right: 30px;
+            .fas.fa-tag{
+              @include left_nav_icon;
+            }
+          }
+        }
+      }
+      //ヘッダーナビ 右側
+      .nav_right{
+        margin-left: auto;
+        display: flex;
+        &__favorite{
+          @include nav_block;
+          padding-left: 30px;
+          padding-right: 0px;
+          &--link{
+            @include nav_link;
+            .far.fa-heart{
+              @include right_nav_icon;
+            }
+          }
+        }
+        &__info{
+          @include nav_block;
+          padding-left: 30px;
+          padding-right: 0px;
+          &--link{
+            @include nav_link;
+            .far.fa-bell{
+              @include right_nav_icon;
+            }
+          }
+        }
+        &__doing{
+          @include nav_block;
+          padding-left: 30px;
+          padding-right: 0px;
+          &--link{
+            @include nav_link;
+            .fas.fa-check{
+              @include right_nav_icon;
+            }
+          }
+        }
+        &__mypage{
+          @include nav_block;
+          padding-left: 30px;
+          padding-right: 0px;
+          &--link{
+            @include nav_link;
+            .user_icon{
+              vertical-align: text-bottom;
+              color: #ccc;
+              width: 20px;
+              margin-right: 4px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
