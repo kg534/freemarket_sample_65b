@@ -2,11 +2,11 @@
   .header-inner
     .header-inner__main
       %h1.header-inner__main__logo
-        = link_to image_tag('/assets/logo.png'), "/"
+        = link_to image_tag(asset_path("logo.png")), "/"
       %form.header-inner__main__searchbox
         %input.header-inner__main__searchbox__input{:name => "key", :placeholder => "キーワードから探す", :type => "text", :value => ""}
         %button.header-inner__main__searchbox__iconbox{ :name => "search-button"}
-          = image_tag('/assets/icon-search 1.png', :class => "header-inner__main__searchbox__iconbox__image")
+          = image_tag(asset_path("icon-search 1.png"), :class => "header-inner__main__searchbox__iconbox__image")
     .header-inner__navi
       %ul.header-inner__navi__lists-left
         %li.header-inner__navi__lists-left__category
