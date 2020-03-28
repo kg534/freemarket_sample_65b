@@ -11,6 +11,15 @@
       %ul.header-inner__navi__lists-left
         %li.header-inner__navi__lists-left__category
           = link_to "カテゴリー", "#", :id => "list"
+          .header-inner__navi__lists-left__category__tree
+            %ul.header-inner__navi__lists-left__category__tree__parent
+              - @parents.each do |parent|
+                %li.header-inner__navi__lists-left__category__tree__parent__item
+                  = link_to "#{parent.name}", category_path(parent), class: "header-inner__navi__lists-left__category__tree__parent__item__select", id: "#{parent.id}"
+            %ul.header-inner__navi__lists-left__category__tree__child
+              %li.header-inner__navi__lists-left__category__tree__child__item
+            %ul.header-inner__navi__lists-left__category__tree__grandchild
+              %li.header-inner__navi__lists-left__category__tree__grandchild__item
         %li.header-inner__navi__lists-left__brand
           = link_to "ブランド", "#", :id => "brand-btn"
       %ul.header-inner__navi__lists-right
