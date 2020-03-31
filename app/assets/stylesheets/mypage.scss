@@ -4,7 +4,13 @@
 }
 // フォント指定
 body{
+  position: relative;
+  min-height: 100%;
   font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+  font-size: 14px;
+  color: #333;
+  background-color: #f5f5f5;
+  line-height: 1;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -26,7 +32,7 @@ body{
 
 // 左ナビゲーション アイコン部分
 @mixin left_nav_icon{
-  color: #3CCACE;
+  color: #ccc;
   margin-right: 4px;
 }
 
@@ -37,11 +43,11 @@ body{
   margin-right: 4px;
 }
 
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 //ヘッダー
 .header{
   padding: 0 60px;
+  background-color: #fff;
   &__inner{
     max-width: 1040px;
     min-height: 82px;
@@ -101,9 +107,8 @@ body{
     // ヘッダーナビ
     &--nav{
       font-size: 14px;
-      margin-bottom: 10px;
+      padding-bottom: 10px;
       display: flex;
-      height: 44px;
       //ヘッダーナビ 左側
       .nav_left{
         display: flex;
@@ -184,5 +189,611 @@ body{
         }
       }
     }
+  }
+}
+
+
+// ナビゲーション リンクバー 
+.link_bar{
+  position: relative;
+  border-top: 1px solid #eee;
+  box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.16);
+  background-color: #fff;
+  z-index: 1;
+  padding: 0 60px;
+  &__list{
+    width: 100%;
+    margin: 0 auto;
+    padding: 17px 0 16px;
+    max-width: 1040px;
+    font-size: 14px;
+    white-space: normal;
+    &--top_page{
+      display: inline-block;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      line-height: 1.2;
+      .top_page_link{
+        text-decoration: none;
+        color: #333;
+        touch-action: manipulation;
+      }
+    }
+    &--angle-right{
+      display: inline-block;
+      margin: 0 8px;
+      color: #888;
+    }
+    &--mypage{
+      display: inline-block;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      font-size: 14px;
+      line-height: 1.2;
+      .mypage_link{
+        text-decoration: none;
+        color: #333;
+        touch-action: manipulation;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+
+//メインページ
+.main_box{
+  width: 1020px;
+  margin: 40px auto 0px;
+  padding: 0px 0px 40px;
+  display: flex;
+//サイドタブ
+  .side{
+    width: 280px;
+    margin: 0 40px 0 0;
+    &__bar{
+      //トップ
+      .side_top_bar{
+        list-style: none;
+        &__link{
+          border-top: 1px solid #eee;
+        &:first-child{
+          border: 0px;
+        }
+          .select_tab{
+            background-color: #eee;
+            font-weight: 600;
+            position: relative;
+            display: block;
+            min-height: 48px;
+            padding: 16px;
+            color: #333;
+            font-size: 14px;
+            text-decoration: none;
+          }
+          .fas.fa-angle-right{
+            position: absolute;
+            right: 16px;
+            color: #ccc;
+            font-size: 22px;
+            top: 30%;
+          }
+          .link_tab{
+            position: relative;
+            display: block;
+            min-height: 48px;
+            padding: 16px;
+            color: #333;
+            background-color: #fff;
+            font-size: 14px;
+            text-decoration: none;
+            .fas.fa-angle-right{
+              position: absolute;
+              right: 16px;
+              color: #ccc;
+              font-size: 22px;
+              top: 30%;
+            }   
+          }
+        }
+      }
+      //ミドル・ボトム
+      .title{
+        margin: 40px 0 0;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      .side_middle_bar,.side_bottom_bar{
+        margin: 8px 0 0;
+        &__link{
+          border-top: 1px solid #eee;
+        &:first-child{
+          border: 0px;
+        }
+          .link_tab{
+            position: relative;
+            display: block;
+            min-height: 48px;
+            padding: 16px;
+            color: #333;
+            background-color: #fff;
+            font-size: 14px;
+            text-decoration: none;
+            .fas.fa-angle-right{
+              position: absolute;
+              right: 16px;
+              color: #ccc;
+              font-size: 22px;
+              top: 30%;
+            }
+          }
+        }
+      }
+    }
+  }
+    //メインタブ
+  .main_content{  
+    width: 700px;
+    //ユーザーアイコン
+    &__user-icon{
+      position: relative;
+      height: 200px;
+      padding: 20px;
+      background-image: image-url('87b042397761a595d87a00fa374421fa.jpg'); 
+      background-repeat: no-repeat;
+      background-size: cover;
+      text-align: center;
+      &--link{
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        color: #333;
+        transform: translate(0, -50%);
+        text-decoration: none;
+        touch-action: manipulation;
+        cursor: pointer;
+        .user_icon_box{
+          height: 60px;
+          width: 60px;
+          margin: 0 auto;
+          overflow: hidden;
+          .user_icon_status{
+            height: 60px;
+            width: 60px;
+            margin: 0 auto;
+            vertical-align: middle;
+          }
+        }
+        &:hover{
+          opacity: 0.7;
+        }
+        .bold{
+          font-size: 14px;
+          margin: 8px 0 0;
+          font-weight: 600;
+        }
+        .user_status{
+          margin: 10px 0 0;
+          &__evaluation{
+            display: inline-block;
+            font-size: 14px;
+          }
+          &__exhibition{
+            display: inline-block;
+            font-size: 14px;
+            margin: 0 0 0 16px;
+          }
+          &__number{
+            display: inline-block;
+            margin: 0 0 0 8px;
+            font-weight: 600;
+            font-size: 16px;
+          }
+        }
+      }
+    }
+    //お知らせ・やることリスト タブ
+    &__tab{
+      margin: 0px;
+      .tab{
+        border: 0px;
+        list-style: none;
+        font-size: 0px;
+        background-color: #eee;
+        .tab__info{
+          width: 50%;
+          display: inline-block;
+          text-align: center;
+          vertical-align: top;
+          .tab__info--link{
+            position: relative;
+            display: block;
+            color: #333;
+            font-size: 16px;
+            line-height: 72px;
+            text-decoration: none;
+            touch-action: manipulation;
+            font-weight: bold;
+          }
+          &:hover{
+            opacity: 0.8;
+          }
+        }
+        .tab__info.active{
+          border-top: 2px solid #ea352d;
+          max-height: 72px;
+          background-color: #fff;
+          width: 50%;
+          display: inline-block;
+          text-align: center;
+          vertical-align: top;
+          .tab__info--link{
+            position: relative;
+            display: block;
+            color: #333;
+            font-size: 16px;
+            line-height: 72px;
+            text-decoration: none;
+            touch-action: manipulation;
+            font-weight: bold;
+          }
+          &:hover{
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+    // メッセージ
+    .container{
+      background-color: #fff;
+      // お知らせ やることリスト メッセージ文
+      // 非表示
+      .container__info{
+        display: none;
+        list-style: none;
+        .container__info--list{
+          border-bottom: 1px solid #eee;
+          position: relative;
+          &:hover{
+            background-color: #fbfbfb;
+          }
+          .info_link{
+            display: block;
+            position: relative;
+            min-height: 80px;
+            padding: 16px;
+            color: #333;
+            text-decoration: none;
+            .furima_logo{
+              position: absolute;
+              top: 20%;
+              z-index: 1;
+              overflow: hidden;
+              float: left;
+              width: 48px;
+              height: 48px;
+              &__image{
+                width: 100%;
+              }
+            }
+            .info_message{
+              margin: 0 40px 0 68px;
+              &__content{
+                overflow: hidden;
+                max-height: 4.4em;
+                text-overflow: ellipsis;
+                line-height: 1.5;
+              }
+              .post_time{
+                display: inline-block;
+                color: #888;
+                .far.fa-clock{
+                  margin: 0 8px 0 0;
+                  font-size: 16px;
+                  vertical-align: middle;
+                }
+              }
+            }
+            .fas.fa-angle-right{
+              position: absolute;
+              top: 50%;
+              right: 16px;
+              transform: translate(0, -50%);
+              color: #333;
+              font-size: 22px;
+            }
+            span{
+              vertical-align: middle;
+            }
+          }
+        }
+      }
+      // 表示
+      .container__info.action{
+        display: block;
+        list-style: none;
+        .container__info--list{
+          border-bottom: 1px solid #eee;
+          position: relative;
+          &:hover{
+            background-color: #fbfbfb;
+          }
+          .info_link{
+            display: block;
+            position: relative;
+            min-height: 80px;
+            padding: 16px;
+            color: #333;
+            text-decoration: none;
+            .furima_logo{
+              position: absolute;
+              top: 20%;
+              z-index: 1;
+              overflow: hidden;
+              float: left;
+              width: 48px;
+              height: 48px;
+              &__image{
+                width: 100%;
+              }
+            }
+            .info_message{
+              margin: 0 40px 0 68px;
+              &__content{
+                overflow: hidden;
+                max-height: 4.4em;
+                text-overflow: ellipsis;
+                line-height: 1.5;
+              }
+              .post_time{
+                display: inline-block;
+                color: #888;
+                .far.fa-clock{
+                  margin: 0 8px 0 0;
+                  font-size: 16px;
+                  vertical-align: middle;
+                }
+              }
+            }
+            .fas.fa-angle-right{
+              position: absolute;
+              top: 50%;
+              right: 16px;
+              transform: translate(0, -50%);
+              color: #333;
+              font-size: 22px;
+            }
+            span{
+              vertical-align: middle;
+            }
+          }
+        }
+      }
+      // 一覧表示ボタン
+      .container__bar{
+        list-style: none;
+        &__list{
+          border: 0px;
+          padding: 16px;
+          &--button{
+            display: block;
+            background-color: #eee;
+            color: #333;
+            text-align: center;
+            text-decoration: none;
+            height: 56px;
+            line-height: 56px;
+            &:hover{
+              background-color: #fafafa;
+            }
+          }
+        }
+      }
+    }
+    // 購入した商品
+    &__purchase{
+      margin: 40px 0 0;
+      background-color: #fff;
+      .purchase{
+        padding: 0 16px;
+        background-color: #fafafa;
+        font-size: 16px;
+        line-height: 72px;
+        font-weight: bold;
+      }
+      .purchase_box{
+        list-style: none;
+        border: 0px;
+        background: #eee;
+        font-size: 0px;
+        // 非選択タブ
+        .purchase_box__tab{
+          width: 50%;
+          display: inline-block;
+          text-align: center;
+          vertical-align: top;
+          .purchase_box__tab--link{
+            position: relative;
+            display: block;
+            color: #333;
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 72px;
+            text-decoration: none;
+          }
+          &:hover{
+            opacity: 0.8;
+          }
+        }
+        // 選択中タブ
+        .purchase_box__tab.choise{
+          width: 50%;
+          background-color: #fff;
+          display: inline-block;
+          text-align: center;
+          vertical-align: top;
+          border-top: 2px solid #ea352d;
+          .purchase_box__tab--link{
+            position: relative;
+            display: block;
+            color: #333;
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 72px;
+            text-decoration: none;
+          }
+          &:hover{
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+      .product{
+        border: 0px;
+        // 非表示
+        .product__list{
+          display: none;
+          list-style: none;
+          .product__list--info{
+            padding: 160px 0 60px;
+            text-align: center;
+            font-size: 16px;
+            color: #ccc;
+            font-weight: 600;
+          }
+        }
+        // 表示
+        .product__list.display{
+          display: block;
+          list-style: none;
+          .product__list--info{
+            background-color: #fff;
+            padding: 160px 0 60px;
+            text-align: center;
+            font-size: 16px;
+            color: #ccc;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+
+
+//フリマ広告
+.app_banner{
+  position: relative;
+  padding: 100px 40px;
+  background-image: image-url('bg-appBanner-pict.jpg');
+  background-size: cover;
+  background-position: center;
+  &__box{
+    text-align: center;
+    color: #fff;
+    &--title{
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 2;
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+    }
+    &--text{
+      font-size: 35px;
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+    }
+    &--icon{
+      width: 100%;
+      margin: 15px auto 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      a:first-child{
+        margin-right: 5px;
+      }
+      .apple_btn{
+        display: block;
+        width: 180px;
+      }
+      .apple_btn:hover{
+        opacity: 0.5;
+      }
+      .google_btn{
+        display: block;
+        width: 220px;
+      }
+      .google_btn:hover{
+        opacity: 0.5;
+      }
+    }
+  }
+}
+
+  //フッター
+.footer{
+  padding: 60px 0;
+  color: #fff;
+  background-color: #272727;
+  text-align: center;
+  &__content{
+    max-width: 840px;
+    list-style: none;
+    display: flex;
+    margin: 0 auto;
+    &__list{
+      margin-right: 0 2% 0 0;
+      width: calc(1/3 * 100%);
+
+      &__text{
+        margin: 0 0 20px;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      &__info{
+        list-style: none;
+        .link_text{
+          text-decoration: none;
+          color: #fff;
+          font-size: 12px;
+          line-height: 32px;
+        }
+        .link_text:hover{
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  &__logo{
+    max-width: 160px;
+    margin: 0 auto;
+    &--decoration{
+      width: 100%;
+    }
+  }
+  &__text{
+    font-size: 14px;
+  }
+}
+
+//出品ボタン
+.exhibition_btn{
+  background-color: #3CCACE;
+  width: 120px;
+  text-align: center;
+  border-radius: 4%;
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+  padding: 15px;
+  &__text{
+    display: block;
+    margin-bottom: 5px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 1.5;
+  }
+  &__image{
+    width: 60%;
+    vertical-align: bottom;
   }
 }
