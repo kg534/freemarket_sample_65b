@@ -406,6 +406,9 @@ body{
           display: inline-block;
           text-align: center;
           vertical-align: top;
+          &:hover{
+            cursor: pointer;
+          }
           .tab__info--link{
             position: relative;
             display: block;
@@ -428,6 +431,9 @@ body{
           display: inline-block;
           text-align: center;
           vertical-align: top;
+          &:hover{
+            cursor: pointer;
+          }
           .tab__info--link{
             position: relative;
             display: block;
@@ -613,6 +619,9 @@ body{
           display: inline-block;
           text-align: center;
           vertical-align: top;
+          &:hover{
+            cursor: pointer;
+          }
           .purchase_box__tab--link{
             position: relative;
             display: block;
@@ -634,6 +643,9 @@ body{
           text-align: center;
           vertical-align: top;
           border-top: 2px solid #ea352d;
+          &:hover{
+            cursor: pointer;
+          }
           .purchase_box__tab--link{
             position: relative;
             display: block;

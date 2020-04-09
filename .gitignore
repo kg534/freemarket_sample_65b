@@ -32,3 +32,6 @@
 
 # Ignore uploaded files in development
 /public/uploads/
+
+# pay.jp API環境変数をGithubにあげないため
+/.env

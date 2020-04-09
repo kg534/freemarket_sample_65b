@@ -84,7 +84,7 @@
           %span 発送元・お届け先住所変更
           =icon("fas", "angle-right")
       %li.side_bottom_bar__link
-        = link_to "mypages_user_path", class: 'link_tab' do
+        = link_to mypages_user_cards_path(current_user.id), class: 'link_tab' do
           %span 支払い方法
           =icon("fas", "angle-right")
       %li.side_bottom_bar__link
@@ -100,6 +100,6 @@
           %span 電話番号の確認
           =icon("fas", "angle-right")
       %li.side_bottom_bar__link
-        = link_to "mypages_user_path", class: 'link_tab' do
+        = link_to logout_mypages_user_path(current_user.id), class: 'link_tab' do
           %span ログアウト
           =icon("fas", "angle-right")
