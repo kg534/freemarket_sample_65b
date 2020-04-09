@@ -16,7 +16,7 @@
 }
 
 @mixin register-form-text_field{
-  width: 352px;
+  width: 370px;
   height: 48px;
   margin: 8px 0 0;
   padding-left: 16px;
@@ -26,7 +26,7 @@
 }
 
 @mixin register-form-name_field{
-  width: 160px;
+  width: 180px;
   height: 48px;
   margin: 8px 0 0;
   padding-left: 16px;
@@ -35,14 +35,32 @@
   font-size: 15px; 
 }
 
+.error_explanation-user{
+  margin-top: 5px;
+  color: red;
+  float: left;
+  font-size: 14px;
+}
+
 .devise--main{
-  height: 1199px;
+  height: 1500px;
   width: 100%;
   background-color: menu;
+.devise--address{
+  height: 1000px;
+  width: 100%;
+  background-color: menu;
+}
+  &__container--address{
+    background-color: white;
+    width: 700px;
+    height: 1000px;
+    margin: 0 auto;
+  }
   &__container{
     background-color: white;
     width: 700px;
-    height: 1199px;
+    height: 1500px;
     margin: 0 auto;
     &__head{
       text-align: center;
@@ -58,10 +76,12 @@
       width: 370px;
       height: 847px;
       margin: 0 auto;
-      padding: 24px 16px 40px;
+      padding: 24px 40px 0 0;
       .form--group{
         width: 370px;
         height: 99px;
+        margin-bottom: 25px;
+        position: relative;
       }
       .form--group label{
         font-weight: 600;
@@ -86,7 +106,7 @@
         @include register-form-text_field;
       }
       p.form--note{
-        margin: 0 8px;
+        margin-bottom: 10px;
         color: #888;
         font-size: 14px;
       }
@@ -106,6 +126,9 @@
       .register--first_name__kanji{
         float: right;
         @include register-form-name_field; 
+        position: absolute;
+        top: 21%;
+        left: 52%;
       }
       .register--family_name__kana{
         @include register-form-name_field;
@@ -113,6 +136,9 @@
       .register--first_name__kana{
         float: right;
         @include register-form-name_field; 
+        position: absolute;
+        top: 21%;
+        left: 52%;
       }
       .year, .month, .day{
         width: 80px;

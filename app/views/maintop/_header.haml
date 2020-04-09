@@ -1,0 +1,20 @@
+%header.all-header
+  .header-inner
+    .header-inner__main
+      %h1.header-inner__main__logo
+        = link_to image_tag(asset_path("logo.png")), "/"
+      %form.header-inner__main__searchbox
+        %input.header-inner__main__searchbox__input{:name => "key", :placeholder => "キーワードから探す", :type => "text", :value => ""}
+        %button.header-inner__main__searchbox__iconbox{ :name => "search-button"}
+          = image_tag(asset_path("icon-search 1.png"), :class => "header-inner__main__searchbox__iconbox__image")
+    .header-inner__navi
+      %ul.header-inner__navi__lists-left
+        %li.header-inner__navi__lists-left__category
+          = link_to "カテゴリー", "#", :id => "list"
+        %li.header-inner__navi__lists-left__brand
+          = link_to "ブランド", "#", :id => "brand-btn"
+      %ul.header-inner__navi__lists-right
+        %li.header-inner__navi__lists-right__login
+          = link_to "ログイン", "#"
+        %li.header-inner__navi__lists-right__new
+          = link_to "新規会員登録", "#"
