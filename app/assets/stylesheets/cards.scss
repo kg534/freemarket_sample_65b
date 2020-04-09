@@ -1,0 +1,303 @@
+// 全体
+body{
+  color: #333;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+}
+
+// カード登録 画面へ
+.cards_add{
+  width: 700px;
+  &__box{
+    background-color: #fff;
+    &--text{
+      font-size: 24px;
+      padding: 8px 24px;
+      text-align: center;
+      border-bottom: 1px solid #f5f5f5;
+      font-weight: bold;
+      line-height: 1.4;
+    }
+    &__block{
+      padding: 64px;
+      border-top: 1px solid #f5f5f5;
+// 「 クレジットカード一覧 」
+      &--list{
+        max-width: 320px;
+        margin: 0 auto;
+        font-size: 16px;
+        font-weight: bold;
+      }
+// 登録したクレジットカード情報
+      &--info{
+        padding: 24px 0;
+        .cards_info{
+          position: relative;
+          max-width: 320px;
+          margin: 0 auto;
+          .logo_jcb{
+            width: 32px;
+            height: 25px;
+          }
+          &__number{
+            font-size: 15px;
+            margin: 8px 0 0;
+          }
+          &__date{
+            font-size: 15px;
+            margin: 8px 0 0;
+          }
+          &__delete{
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 4px 6px;
+            background-color: #fff;
+            color: #3CCACE;
+            border: 1px solid #3CCACE;
+            border-radius: 3px;
+            text-decoration: none;
+            line-height: 1.2;
+            cursor: pointer;
+          }
+        }
+      }
+// クレジットカード 追加ボタン
+      &--btn{
+        padding: 24px 0;
+        max-width: 320px;
+        margin: 0 auto;
+        .add_link{
+          display: block;
+          width: 100%;
+          border: 1px #3CCACE;
+          background-color: #3CCACE;
+          text-decoration: none;
+          text-align: center;
+          color: #fff;
+          font-size: 14px;
+          line-height: 48px;
+          touch-action: manipulation;
+          margin-bottom: 8px;
+          cursor: pointer;
+          &:hover{
+            opacity: 0.8;
+            transition: all ease-out 0.3s;
+          }
+          .far.fa-credit-card{
+            display: inline-block;
+            margin-right: 16px;
+            font-size: 16px;
+            vertical-align: middle;
+          }
+        }
+      }
+      &--method{
+        border-top: 1px solid #eee;
+        .method_link{
+          display: block;
+          text-decoration: none;
+          text-align: right;
+          color: #0099e8;
+          margin: 40px 0 0;
+          &:hover{
+            opacity: 0.7;
+          }
+          &--text{
+            vertical-align: middle;
+            &:hover{
+              text-decoration: underline;
+            }
+          }
+          .fas.fa-angle-right{
+            display: inline-block;
+            margin-left: 8px;
+            font-size: 21px;
+            vertical-align: middle;
+          }
+        }
+      }
+    }
+  }
+}
+// --------------------------------------------------------------------------------
+// mixin定義
+@mixin require_logo{
+  color: #fff;
+  background-color: #3CCACE;
+  border-radius: 2px;
+  padding: 3px 4px;
+  margin-left: 8px;
+  font-size: 12px;
+}
+
+@mixin input_form{
+  display: block;
+  height: 48px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 8px 0 0;
+  padding: 10px 16px 8px;
+}
+
+// クレジットカード登録画面
+.cards_register{
+  width: 700px;
+  &__box{
+    background-color: #fff;
+    &--text{
+      font-size: 24px;
+      padding: 8px 24px;
+      text-align: center;
+      border-bottom: 1px solid #f5f5f5;
+      font-weight: bold;
+      line-height: 1.4;
+    }
+    .cards_register_form{
+      padding: 40px 40px 60px;
+      border-top: 1px solid #f5f5f5;
+      &__box{
+        max-width: 343px;
+        margin: 0 auto;
+        .cards_register__number{
+          &--text{
+            font-weight: 600;
+          }
+          .require{
+            @include require_logo;
+            vertical-align: top
+          }
+          &--input{
+            @include input_form;
+          }
+          &--logo{
+            list-style: none;
+            margin: 8px 0 0;
+            &--list{
+              display: inline-block;
+              vertical-align: middle;
+            }
+            :nth-of-type(n+2){
+              margin: 0 0 0 4px;
+            }
+            .visa_logo{
+              width: 42px;
+              height: 27px;
+            }
+            .master_card_logo{
+              width: 35px;
+              height: 25px;
+            }
+            .saizon_logo{
+              width: 35px;
+              height: 25px;
+            }
+            .jcb_logo{
+              width: 32px;
+              height: 25px;
+            }
+            .american_logo{
+              width: 27px;
+              height: 23px;
+            }
+            .diners_logo{
+              width: 35px;
+              height: 25px;
+            }
+            .discover_logo{
+              width: 32px;
+              height: 22px;
+            }
+          }
+        }
+        .cards_register__deadline{
+          margin-top: 32px;
+          &--text{
+            font-weight: 600;
+          }
+          .require{
+            @include require_logo;
+            vertical-align: text-top;
+          }
+          &__box{
+            margin-top: 8px;
+            &--select{
+              display: inline-block;
+              width: calc(50% - 4px);
+              #card_month{
+                display: inline-block;
+                height: 48px;
+                width: calc(100% - 38px);
+                border: 1px solid #ccc;
+                background-color: #fff;
+                font-size: 16px;
+                line-height: 1.5;
+                border-radius: 4px;
+                cursor: pointer;
+                touch-action: manipulation;
+                text-indent: 8%;
+              }
+              .month{
+                display: inline-block;
+                margin-left: 10px; 
+              }
+              #card_year{
+                display: inline-block;
+                height: 48px;
+                width: calc(100% - 38px);
+                border: 1px solid #ccc;
+                background-color: #fff;
+                font-size: 16px;
+                line-height: 1.5;
+                border-radius: 4px;
+                cursor: pointer;
+                touch-action: manipulation;
+                text-indent: 8%;
+              }
+              .year{
+                display: inline-block;
+                margin-left: 7px; 
+              }
+            }
+          }
+        }
+        .cards_register__security{
+          margin-top: 32px;
+          &--text{
+            font-weight: 600;
+          }
+          .require{
+            @include require_logo;
+            vertical-align: text-top;
+          }
+          &--input{
+            @include input_form;
+          }
+          &--question{
+            margin: 8px 0 0;
+            text-align: right;
+            .card_number_question{
+              text-decoration: none;
+              color: #0099e8;
+            }
+          }
+        }
+        .add_btn{
+          margin: 30px auto 10px;
+          background-color: #3CCACE;
+          text-align: center;
+          line-height: 1.5;
+          padding: 16px;
+          cursor: pointer;
+          &__link{
+            text-decoration: none;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}

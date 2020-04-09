@@ -1,0 +1,10 @@
+%nav.link_bar
+  %ul.link_bar__list
+    %li.link_bar__list--top_page
+      = link_to root_path, class: 'top_page_link' do
+        %span FURIMA
+    %li.link_bar__list--angle-right
+      = icon("fas", "angle-right", class: "except")
+    %li.link_bar__list--mypage
+      =link_to root_path, class: 'mypage_link' do
+        %span マイページ
