@@ -9,8 +9,8 @@ class Mypages::CardsController < ApplicationController
   end
 
   def create
-    @card = Card.create(card_params)
-    if @card
+    @card = Card.new(card_params)
+    if @card.save
       redirect_to root_path
     else
       render :index
