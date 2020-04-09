@@ -1,0 +1,51 @@
+.wrapper
+  -# ヘッダー
+  = render partial: 'mypages/users/header' 
+  -# メルカリ リンクバー
+  = render partial: 'mypages/users/link_bar'
+  -# メインページ
+  %main.main_box
+    -# サイドタブ
+    = render partial: 'mypages/users/side_bar'
+    -# メインタブ
+    .cards_register
+      %section.cards_register__box
+        %h2.cards_register__box--text クレジットカード情報入力
+        = form_with(model: [@user, @card],url: mypages_user_cards_path, local: true, class: 'cards_register_form') do |form|
+          .cards_register_form__box
+            .cards_register__number
+              = form.label :card_number, 'カード番号', class: 'cards_register__number--text'
+              %span.require 必須
+              = form.text_field :card_number, placeholder: '半角数字のみ', class: 'cards_register__number--input'
+              %ul.cards_register__number--logo
+                %li.cards_register__number--logo--list= image_tag(asset_path('logo_visa'),{alt: 'VISA', class: 'visa_logo'})
+                %li.cards_register__number--logo--list= image_tag(asset_path('mc_vrt_pos.svg'),{alt: 'MasterCard', class: 'master_card_logo'})
+                %li.cards_register__number--logo--list= image_tag(asset_path('4-04.saison'),{alt: 'SAIZON', class: 'saizon_logo'})
+                %li.cards_register__number--logo--list= image_tag(asset_path('jcb-logomark-img-02'),{alt: 'JCB', class: 'jcb_logo'})
+                %li.cards_register__number--logo--list= image_tag(asset_path('amex-logomark-img-05'),{alt: 'AMERICANEXPRESS', class: 'american_logo'})
+                %li.cards_register__number--logo--list= image_tag(asset_path('diners-logomark-img-02'),{alt: 'Diners Club', class: 'diners_logo'})
+                %li.cards_register__number--logo--list= image_tag(asset_path('discover-logomark-img-07'),{alt: 'DISCOVER', class: 'discover_logo'})
+            .cards_register__deadline
+              = form.label :有効期限, class: 'cards_register__deadline--text'
+              %span.require 必須
+              .cards_register__deadline__box
+                .cards_register__deadline__box--select
+                  = form.select :month,[["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]]
+                  %span.month 月
+                .cards_register__deadline__box--select
+                  = form.select :year,[["20",2020],["21",2021],["22",2021],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029],["30",2030]]
+                  %span.year 年
+            .cards_register__security
+              = form.label :security_code, 'セキュリティコード', class: 'cards_register__security--text'
+              %span.require 必須
+              = form.text_field :security_code, placeholder: 'カード背面4桁もしくは3桁の番号', class: 'cards_register__security--input'
+              .cards_register__security--question
+                = link_to 'カード裏面の番号とは？', '/', class: 'card_number_question'
+            .add_btn 
+              = link_to '追加する', '/', class: 'add_btn__link'
+  -# フリマ広告
+  = render partial: 'mypages/users/advertisement'
+  -# フッター
+  = render partial: 'mypages/users/footer'
+  -# 出品ボタン
+  = render partial: 'mypages/users/exibition_btn'

@@ -1,0 +1,34 @@
+-# ヘッダー（共通）
+%header.header
+  .header__inner
+    .header__inner--search
+      %h1.title
+        = link_to image_tag(asset_path('logo.png'), {alt: 'FURIMA', class: 'furima_icon'}), root_path, class: 'link_top_page'
+      = render partial: 'products/search'
+    .header__inner--nav
+      %ul.nav_left
+        %li.nav_left__category
+          = link_to root_path, class: 'nav_left__category--link' do
+            =icon("fas", "list-ul")
+            %span カテゴリー
+        %li.nav_left__brand
+          = link_to root_path, class: 'nav_left__brand--link' do
+            =icon("fas", "tag")
+            %span ブランド
+      %ul.nav_right
+        %li.nav_right__favorite
+          = link_to root_path, class: 'nav_right__favorite--link' do
+            = icon("far", "heart")
+            %span いいね！一覧
+        %li.nav_right__info
+          = link_to root_path, class: 'nav_right__info--link' do
+            =icon("far", "bell")
+            %span お知らせ
+        %li.nav_right__doing
+          = link_to root_path, class: 'nav_right__doing--link' do
+            =icon("fas","check")
+            %span やることリスト
+        %li.nav_right__mypage
+          = link_to root_path, class: 'nav_right__mypage--link' do
+            = image_tag asset_path('member_photo_noimage_thumb.png'), class: 'user_icon'
+            %span マイページ

@@ -1,0 +1,19 @@
+.wrapper
+  -# ヘッダー
+  = render partial: 'mypages/users/header' 
+  -# メルカリ リンクバー
+  = render partial: 'mypages/users/link_bar'
+  -# メインページ
+  %main.main_box
+    -# サイドタブ
+    = render partial: 'mypages/users/side_bar'
+    -# メインタブ
+    .log_out
+      .log_out__box
+        = button_to "ログアウト", destroy_user_session_path, method: :delete, class: 'log_out__box--btn'
+  -# フリマ広告
+  = render partial: 'mypages/users/advertisement'
+  -# フッター
+  = render partial: 'mypages/users/footer'
+  -# 出品ボタン
+  = render partial: 'mypages/users/exibition_btn'

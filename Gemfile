@@ -85,6 +85,15 @@ gem 'devise'
 gem 'haml-rails' 
 gem 'erb2haml'
 
+gem 'jquery-rails'
+
+gem "font-awesome-sass"
+
+gem 'payjp'
+
+# 環境変数を簡単に定義できるENVファイルを対応させるgem
+gem 'dotenv-rails'
+
+
 gem 'rails-i18n'
 
-gem 'jquery-rails'
