@@ -18,13 +18,13 @@
               %span.require 必須
               = form.text_field :card_number, placeholder: '半角数字のみ', class: 'cards_register__number--input'
               %ul.cards_register__number--logo
-                %li.cards_register__number--logo--list= image_tag(asset_path('logo_visa'),{alt: 'VISA', class: 'visa_logo'})
+                %li.cards_register__number--logo--list= image_tag(asset_path('logo_visa.gif'),{alt: 'VISA', class: 'visa_logo'})
                 %li.cards_register__number--logo--list= image_tag(asset_path('mc_vrt_pos.svg'),{alt: 'MasterCard', class: 'master_card_logo'})
-                %li.cards_register__number--logo--list= image_tag(asset_path('4-04.saison'),{alt: 'SAIZON', class: 'saizon_logo'})
-                %li.cards_register__number--logo--list= image_tag(asset_path('jcb-logomark-img-02'),{alt: 'JCB', class: 'jcb_logo'})
-                %li.cards_register__number--logo--list= image_tag(asset_path('amex-logomark-img-05'),{alt: 'AMERICANEXPRESS', class: 'american_logo'})
-                %li.cards_register__number--logo--list= image_tag(asset_path('diners-logomark-img-02'),{alt: 'Diners Club', class: 'diners_logo'})
-                %li.cards_register__number--logo--list= image_tag(asset_path('discover-logomark-img-07'),{alt: 'DISCOVER', class: 'discover_logo'})
+                %li.cards_register__number--logo--list= image_tag(asset_path('4-04.saison.jpg'),{alt: 'SAIZON', class: 'saizon_logo'})
+                %li.cards_register__number--logo--list= image_tag(asset_path('jcb-logomark-img-02.gif'),{alt: 'JCB', class: 'jcb_logo'})
+                %li.cards_register__number--logo--list= image_tag(asset_path('amex-logomark-img-05.gif'),{alt: 'AMERICANEXPRESS', class: 'american_logo'})
+                %li.cards_register__number--logo--list= image_tag(asset_path('diners-logomark-img-02.gif'),{alt: 'Diners Club', class: 'diners_logo'})
+                %li.cards_register__number--logo--list= image_tag(asset_path('discover-logomark-img-07.gif'),{alt: 'DISCOVER', class: 'discover_logo'})
             .cards_register__deadline
               = form.label :有効期限, class: 'cards_register__deadline--text'
               %span.require 必須
