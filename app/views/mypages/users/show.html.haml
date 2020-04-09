@@ -13,7 +13,8 @@
         = link_to root_path, class: 'main_content__user-icon--link' do
           %figure.user_icon_box
             = image_tag asset_path('member_photo_noimage_thumb.png'),class: 'user_icon_status'
-          %h2.bold 田中太郎
+          %h2.bold 
+            = current_user.nickname
           .user_status
             .user_status__evaluation 評価
             .user_status__number 0
