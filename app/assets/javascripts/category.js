@@ -1,3 +1,4 @@
+//トップページ
 $(function(){
 //カテゴリ表示
   $(".header-inner__navi__lists-left__category").hover(function(){
@@ -74,4 +75,85 @@ $(document).on({
   },".header-inner__navi__lists-left__category__tree__grandchild__item__select");
 });
 
-
+//商品出品ページ
+$(function(){
+  // カテゴリーセレクトボックスのオプションを作成
+  function appendOption(category){
+    var html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
+    return html
+  }
+  //子カテゴリの表示作成
+  function appendChildBox(insertHTML){
+    var childSelectHtml = '';
+    childSelectHtml = `<select class='product--main__container__details__category__child__select' id="product_child_category_id" name="">
+                          <option value="---" data-category="---">---</option>
+                          ${insertHTML}
+                      </select>`;
+    $('.product--main__container__details__category__child').append(childSelectHtml);
+  }
+  // 孫カテゴリーの表示作成
+  function appendGrandChildBox(insertHTML){
+    var grandchildSelectHtml = '';
+    grandchildSelectHtml = `<select class='product--main__container__details__category__grandchild__select' id="product_grandchild_category_id" name="product[category_id]">
+                              <option value="---" data-category="---">---</option>
+                              ${insertHTML}
+                            </select>`;
+$   ('.product--main__container__details__category__grandchild').append(grandchildSelectHtml);
+  }
+  //親カテゴリー選択後のイベント
+  $('#product_parent_category_id').on('change', function(){
+    var parentCategory = document.getElementById('product_parent_category_id').value;
+    if(parentCategory != "---"){
+      $.ajax({
+        url: 'get_category_child',
+        type: 'GET',
+        data: { parent_name: parentCategory },
+        dataType: 'json'
+      })
+      .done(function(children){
+        $('#product_child_category_id').remove();
+        $('#product_grandchild_category_id').remove();
+        var insertHTML = '';
+        children.forEach(function(child){
+          insertHTML += appendOption(child);
+        });
+        appendChildBox(insertHTML);
+      })
+      .fail(function(){
+        alert('カテゴリー取得に失敗しました');
+      })
+    }else{
+      $('#product_child_category_id').remove();
+      $('#product_grandchild_category_id').remove();
+    }
+  });
+// 子カテゴリー選択後のイベント
+  $(document).on('change', '#product_child_category_id',function(){
+    var childId = $('#product_child_category_id option:selected').data('category');
+    console.log(childId)
+    if(childId != "---"){
+      $.ajax({
+        url: 'get_category_grandchild',
+        type: 'GET',
+        data: { child_id: childId },
+        dataType: 'json'
+      })
+      .done(function(grandchild){
+        if (grandchild.length != 0) {
+        $('#product_grandchild_category_id').remove();
+        var insertHTML = '';
+        grandchild.forEach(function(grandchild){
+          insertHTML += appendOption(grandchild);
+        });
+        appendGrandChildBox(insertHTML);
+       }
+      })
+      .fail(function(){
+        alert('カテゴリー取得に失敗しました');
+      })
+    }else{
+      $('#product_child_category_id').remove();
+      $('#product_grandchild_category_id').remove();
+    }
+  });
+});

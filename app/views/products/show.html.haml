@@ -23,7 +23,12 @@
         %p.product--form__description 商品の詳細
         %label カテゴリー
         %br
+        = @product.category.root.name
+        %br
+        = @product.category.parent.name
+        %br
         = @product.category.name
+        %br
         %label ブランド
         %br
         .product--brand

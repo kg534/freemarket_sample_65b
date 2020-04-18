@@ -42,7 +42,9 @@
         = f.label "カテゴリー"
         %span 必須
         %br
-        = f.collection_select :category_id, Category.all, :id, :name, prompt: '選択してください'
+        = f.select :category_id, @category_parent_array, {},{class: 'product--main__container__details__category', id: 'product_parent_category_id'}
+      .product--main__container__details__category__child
+      .product--main__container__details__category__grandchild
       .form--group
         = f.label "ブランド"
         %span.default 任意
