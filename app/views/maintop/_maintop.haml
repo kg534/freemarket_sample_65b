@@ -9,8 +9,8 @@
         %br
         フリマアプリです
       .main-visual__content__btn
-        = link_to image_tag("/assets/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg"), "#", :class => 'main-visual__content__btn__apple'
-        = link_to image_tag("/assets/google-play-badge.png"), "#", :class => 'main-visual__content__btn__google'
+        = link_to image_tag(asset_path("Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg")), "#", :class => 'main-visual__content__btn__apple'
+        = link_to image_tag(asset_path("google-play-badge.png")), "#", :class => 'main-visual__content__btn__google'
   %section.top-introduction
     %h2.top-introduction__subtitle
       FURIMAが選ばれる3つの理由
@@ -18,7 +18,7 @@
       %li.top-introduction__lists__list
         .top-introduction__lists__list__pict
           %span.top-introduction__lists__list__pict__num 1
-          = image_tag("/assets/pict-reason-01.jpg")
+          = image_tag asset_path("pict-reason-01.jpg")
         .top-introduction__lists__list__text
           %span 3分
           ですぐに出品
@@ -27,7 +27,7 @@
       %li.top-introduction__lists__list
         .top-introduction__lists__list__pict
           %span.top-introduction__lists__list__pict__num 2
-          = image_tag("/assets/pict-reason-02.jpg")
+          = image_tag asset_path("pict-reason-02.jpg")
         .top-introduction__lists__list__text
           %span シンプル
           で使いやすい
@@ -36,7 +36,7 @@
       %li.top-introduction__lists__list
         .top-introduction__lists__list__pict
           %span.top-introduction__lists__list__pict__num 3
-          = image_tag("/assets/pict-reason-03.jpg")
+          = image_tag asset_path("pict-reason-03.jpg")
         .top-introduction__lists__list__text
           手数料
           %span 業界最安
@@ -52,29 +52,29 @@
         %br
         ほしかったあの商品に出会えるかもしれません。
       .top-imagevisual__inner__btn
-        = link_to image_tag("/assets/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg"), "#", :class => 'top-imagevisual__inner__btn__apple'
-        = link_to image_tag("/assets/google-play-badge.png"), "#", :class => 'top-imagevisual__inner__btn__google'
+        = link_to image_tag(asset_path("Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg")), "#", :class => 'top-imagevisual__inner__btn__apple'
+        = link_to image_tag(asset_path("google-play-badge.png")), "#", :class => 'top-imagevisual__inner__btn__google'
   %section.top-key
     %h2.top-key__head
       FURIMAの特徴
     .top-key__items
       %section.top-key__items__item
         %figure.top-key__items__item__img
-          = image_tag("/assets/icon-01.png")
+          = image_tag asset_path("icon-01.png")
         %h3.top-key__items__item__subtitle
           簡単に売り買いできる
         %p.top-key__items__item__detail
           スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
       %section.top-key__items__item
         %figure.top-key__items__item__img
-          = image_tag("/assets/icon-03.png")
+          = image_tag asset_path("icon-03.png")
         %h3.top-key__items__item__subtitle
           売上金は即日振込みに対応
         %p.top-key__items__item__detail
           午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
       %section.top-key__items__item
         %figure.top-key__items__item__img
-          = image_tag("/assets/icon-04.png")
+          = image_tag asset_path("icon-04.png")
         %h3.top-key__items__item__subtitle
           様々な支払いに対応
         %p.top-key__items__item__detail
@@ -90,7 +90,7 @@
       .pickup-category__lists__list
         = link_to "#" do
           %figure.pickup-category__lists__list__img
-            = image_tag("/assets/image01.jpg")
+            = image_tag asset_path("image01.jpg")
           .pickup-category__lists__list__body
             %h3.pickup-category__lists__list__body__name products3
             .pickup-category__lists__list__body__details
@@ -103,7 +103,7 @@
       .pickup-category__lists__list
         = link_to "#" do
           %figure.pickup-category__lists__list__img
-            = image_tag("/assets/image02.jpg")
+            = image_tag asset_path("image02.jpg")
           .pickup-category__lists__list__body
             %h3.pickup-category__lists__list__body__name products2
             .pickup-category__lists__list__body__details
@@ -116,7 +116,7 @@
       .pickup-category__lists__list
         = link_to "#" do
           %figure.pickup-category__lists__list__img
-            = image_tag("/assets/image03.jpg")
+            = image_tag asset_path("image03.jpg")
           .pickup-category__lists__list__body
             %h3.pickup-category__lists__list__body__name products1
             .pickup-category__lists__list__body__details
@@ -137,7 +137,7 @@
       .pickup-category__lists__list
         = link_to "#" do
           %figure.pickup-category__lists__list__img
-            = image_tag("/assets/image01.jpg")
+            = image_tag asset_path("image01.jpg")
           .pickup-category__lists__list__body
             %h3.pickup-category__lists__list__body__name products3
             .pickup-category__lists__list__body__details
@@ -150,7 +150,7 @@
       .pickup-category__lists__list
         = link_to "#" do
           %figure.pickup-category__lists__list__img
-            = image_tag("/assets/image02.jpg")
+            = image_tag asset_path("image02.jpg")
           .pickup-category__lists__list__body
             %h3.pickup-category__lists__list__body__name products2
             .pickup-category__lists__list__body__details
@@ -163,7 +163,7 @@
       .pickup-category__lists__list
         = link_to "#" do
           %figure.pickup-category__lists__list__img
-            = image_tag("/assets/image03.jpg")
+            = image_tag asset_path("image03.jpg")
           .pickup-category__lists__list__body
             %h3.pickup-category__lists__list__body__name products1
             .pickup-category__lists__list__body__details
@@ -179,10 +179,10 @@
     %h2.banner__inner__title だれでもかんたん、人生を変えるフリマアプリ
     %p.banner__inner__text 今すぐ無料ダウンロード！
     .banner__inner__icon
-      = link_to image_tag("/assets/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg"), "#", :class => 'banner__inner__icon__btn-apple'
-      = link_to image_tag("/assets/google-play-badge.png"), "#", :class => 'banner__inner__icon__btn-google'
+      = link_to image_tag(asset_path("Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg")), "#", :class => 'banner__inner__icon__btn-apple'
+      = link_to image_tag(asset_path("google-play-badge.png")), "#", :class => 'banner__inner__icon__btn-google'
 
 = link_to "#" do
   .purchase-btn
     %span.purchase-btn__text 出品する
-    = image_tag("/assets/icon_camera.png", :class => "purchase-btn__icon")
+    = image_tag(asset_path("icon_camera.png"), :class => "purchase-btn__icon")

@@ -1,8 +1,9 @@
-トップページ
+= link_to 'トップページへ', maintops_path
 - if user_signed_in?
   = link_to 'ログアウト', destroy_user_session_path, method: :delete
   = current_user.nickname
   = link_to '商品出品', new_product_path
+  = link_to 'マイページ', mypages_user_path(current_user.id)
   - @products.each do |product|
     = link_to "詳細", product_path(product)
     - if current_user.id == product.user.id

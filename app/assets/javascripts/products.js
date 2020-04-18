@@ -4,13 +4,14 @@ $(document).on('turbolinks:load', function() {
                     <input class="js-file" type="file"
                     name="product[images_attributes][${num}][src]"
                     id="product_images_attributes_${num}_src"><br>
-                    <div class="js-remove">削除</div>
+                    <div class="js post" data-index="${num}">投稿</div>
+                    <div class="js remove" data-index="${num}">削除</div>
                   </label>`;
     return html;
   }
 
   const buildImg = (index, url)=> {
-    const html = `<img data-index="${index}" src="${url}" width="100px" height="100px" class="js-file_image">`;
+    const html = `<img data-index="${index}" src="${url}" width="96px" height="100px" class="js-file_image">`;
     return html;
   }
   
@@ -20,6 +21,14 @@ $(document).on('turbolinks:load', function() {
   fileIndex.splice(0, lastIndex);
   
   $('.hidden-destroy').hide();
+
+  $(document)
+    .on('mouseover', '.js.remove', function(){
+      $('.js-file').prop('disabled', true);
+    })
+    .on('mouseout', '.js.remove', function(){
+    $('.js-file').prop('disabled', false); 
+  });
 
   $('#image-box').on('change', '.js-file', function(e) {
     const targetIndex = $(this).parent().data('index');
@@ -35,24 +44,15 @@ $(document).on('turbolinks:load', function() {
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
     }
 
-    $('.js-remove').css({
-      'color':'#3CCACE',
-      'font-size':'15px',
-      'position':'absolute',
-      'top':'4.5px',
-      'left':'43px'
-    });
-    
     $('#previews').css({
       'display':'flex'
     });
     $('img.js-file_image').css({
       'margin':'12px'
     })
-    
   });
 
-  $('#image-box').on('click', '.js-remove', function() {
+  $('#image-box').on('click', '.js.remove', function() {
     const targetIndex = $(this).parent().data('index');
     const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
     if (hiddenCheck) hiddenCheck.prop('checked', true);
