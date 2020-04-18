@@ -25,6 +25,13 @@
   float: left;
   font-size: 15px; 
 }
+.error_explanation-image{
+  color: red;
+  margin: 10px 0;
+  float: left;
+  font-size: 15px; 
+  margin-bottom: 0;
+}
 .error_explanation-price{
   color: red;
   margin: 10px 0;
@@ -78,12 +85,19 @@
         position: relative;
         margin: 3px
       }
-      .js-remove{
+      .js.post{
         color: #3CCACE;
         font-size: 15px;
         position: absolute;
         top: 2.5px;
-        left: 40px;
+        left: 15px;
+      }
+      .js.remove{
+        color: #ea352d;;
+        font-size: 15px;
+        position: absolute;
+        top: 2.5px;
+        left: 60px;
       }
       #previews{
         display: flex;
