@@ -1,6 +1,6 @@
 //トップページ
 var navi_category = ".header-inner__navi__lists-left__category";
-$(function(){
+$(document).on('turbolinks:load', (function(){
 //カテゴリ表示
   $(navi_category).hover(function(){
     $(navi_category + '__tree').show(),
@@ -74,10 +74,10 @@ $(document).on({
     $(this).css('color','#333');
     }
   },navi_category + "__tree__grandchild__item__select");
-});
+}));
 
 //商品出品ページ
-$(function(){
+$(document).on('turbolinks:load', (function(){
   // カテゴリーセレクトボックスのオプションを作成
   function appendOption(category){
     var html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
@@ -157,4 +157,4 @@ $   ('.product--main__container__details__category__grandchild').append(grandchi
       $('#product_grandchild_category_id').remove();
     }
   });
-});
+}));
