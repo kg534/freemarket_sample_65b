@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
-  before_action :set_product, except: [:index, :new, :create]
+  before_action :set_product, except: [:index, :new, :create, :get_category_child, :get_category_grandchild]
   before_action :set_brand, only: [:create, :update]
+  before_action :set_category, only: [:new, :create, :update]
 
   def index
     @products = Product.includes(:images).order('created_at DESC')
@@ -10,6 +11,14 @@ class ProductsController < ApplicationController
     @product = Product.new
     @product.images.new
     @product.build_brand
+  end
+
+  def get_category_child
+    @category_child = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+  end
+
+  def get_category_grandchild
+    @category_grandchild = Category.find("#{params[:child_id]}").children
   end
 
   def create
@@ -82,6 +91,13 @@ class ProductsController < ApplicationController
 
   def set_product
     @product = Product.find(params[:id])
+  end
+  
+  def set_category
+    @category_parent_array = ["---"]
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
   end
 
   def brand_params

@@ -26,7 +26,13 @@
           %tr 
             %th{ bgcolor: "#EEEEEE" }  カテゴリー
             %td
-              = link_to @product.category.name, '#'
+              = @product.category.root.name
+              %br
+              %br
+              = @product.category.parent.name
+              %br
+              %br
+              = @product.category.name
           %tr 
             %th ブランド
             - if @product.brand_id?

@@ -110,9 +110,69 @@ $maincolor: #3CCACE;
       margin-bottom: 10px;
       &__lists-left{
         display: flex;
+        position: relative;
         &__category{
           a{
             @include lists-style(0 38px 0 0);
+          }
+          &__tree{
+            display: none;
+            z-index: 2;
+            position: absolute;
+            width: 240px;
+            top: 40px;
+            &__parent{
+              background-color: #fff;
+              display: flex;
+              flex-direction: column;
+              position: relative;
+              &__item{
+                position: relative;
+                 a{
+                  line-height: 40px;
+                  display: block;
+                  width: 240px;
+                  padding: 3px 8px 3px 5px;
+                  border-bottom: 1px solid #f8f8f8;
+                }
+              }
+            }
+            &__child{
+              background-color: #fff;
+              display: flex;
+              flex-direction: column;
+              position: absolute;
+              top: 0;
+              left: 240px;
+              &__item{
+                position: relative;
+                 a{
+                  line-height: 40px;
+                  display: block;
+                  width: 250px;
+                  padding: 1px 8px 1px 5px;
+                  border-bottom: 1px solid #f8f8f8;
+                }
+              }
+            }
+            &__grandchild{
+              background-color: #fff;
+              display: flex;
+              flex-direction: column;
+              position: absolute;
+              top: 0;
+              left: 490px;
+              &__item{
+                position: relative;
+                 a{
+                  line-height: 39px;
+                  display: block;
+                  width: 250px;
+                  padding: 1px 8px 1px 5px;
+                  border-bottom: 1px solid #f8f8f8;
+                }
+              }
+            }
           }
         }
         &__brand{
@@ -130,6 +190,16 @@ $maincolor: #3CCACE;
           }
         }
         &__new{
+          a{
+            @include lists-style(0 0 0 16px);
+          }
+        }
+        &__logout{
+          a{
+            @include lists-style(0 0 0 16px);
+          }
+        }
+        &__mypage{
           a{
             @include lists-style(0 0 0 16px);
           }
@@ -315,6 +385,9 @@ $maincolor: #3CCACE;
     padding: 80px 0 0;
     background-color: #f8f8f8;
     height: 100%;
+    &:last-child{
+      padding-bottom: 80px;
+    }
     &__head{
       text-align: center;
       font-size: 28px;

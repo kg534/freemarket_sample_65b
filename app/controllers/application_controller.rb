@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
   
+    before_action :set_parents
+
   private
 
   def production?
@@ -21,4 +23,9 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :last_name, :first_name, :j_last_name, :j_first_name, :birthday, :phone_number])
   end
+
+  def set_parents
+    @parents = Category.where(ancestry: nil)
+  end
+
 end
