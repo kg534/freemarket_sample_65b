@@ -194,6 +194,16 @@ $maincolor: #3CCACE;
             @include lists-style(0 0 0 16px);
           }
         }
+        &__logout{
+          a{
+            @include lists-style(0 0 0 16px);
+          }
+        }
+        &__mypage{
+          a{
+            @include lists-style(0 0 0 16px);
+          }
+        }
       }
     }
   }
