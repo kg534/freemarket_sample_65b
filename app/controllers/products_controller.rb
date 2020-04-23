@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, except: [:index, :new, :create, :get_category_child, :get_category_grandchild]
   before_action :set_brand, only: [:create, :update]
-  before_action :set_category, only: [:new, :create, :update]
+  before_action :set_category, only: [:new, :create, :update, :edit]
 
   def index
     @products = Product.includes(:images).order('created_at DESC')
