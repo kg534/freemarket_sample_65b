@@ -51,8 +51,10 @@
           - if @product.user.id == current_user.id
             = link_to '編集', edit_product_path(@product), class: 'btn btn-link'
             = link_to '削除', product_path(@product), method: :delete, class: 'btn btn-link'
+            // 編集中
+            = link_to '商品購入', product_transactions_path(@product), class: 'btn btn-link'
           - else
-            = link_to '商品購入', '#', class: 'btn btn-link'
+            -# = link_to '商品購入', '#', class: 'btn btn-link'
           = link_to 'もどる', root_path, class: 'btn btn-link'
         .productBox__optional
           .productBox__optional__likeBtn

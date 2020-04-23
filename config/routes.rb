@@ -12,12 +12,19 @@ Rails.application.routes.draw do
       member do
         get 'logout'
       end
-      resources :cards, only: [:index, :new, :create]
+      resources :cards, only: [:index, :new, :create, :destroy]
     end
   end
   get 'maintops', to: 'maintop#index'
   root to: "products#index"
+  
   resources :products do
+    resources :transactions, only: [:index] do
+      collection do
+        get 'done'
+        post 'pay'
+      end
+    end
     collection do
       get 'search'
     end

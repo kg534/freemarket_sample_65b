@@ -1,5 +1,6 @@
 class Card < ApplicationRecord
   belongs_to :user
 
-  validates :card_number, :year, :month, :security_code, presence: true 
+  validates :payjp_id, presence: true
+  validates :user_id, presence: true 
 end

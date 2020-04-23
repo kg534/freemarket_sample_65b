@@ -2,6 +2,7 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "./reset";
+@import "config/colors";
 @import "user";
 @import "login";
 @import "mypage";
@@ -10,4 +11,7 @@
 @import "font-awesome";
 @import "cards";
 @import "log_out";
+@import "modules/flash";
+
+
 
