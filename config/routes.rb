@@ -19,7 +19,10 @@ Rails.application.routes.draw do
   root to: "products#index"
   resources :products do
     collection do
+      get 'get_category_child', defaults: { format: 'json' }
+      get 'get_category_grandchild', defaults: { format: 'json' }
       get 'search'
     end
   end
+  resources :categories, only: [:new, :show]
 end
