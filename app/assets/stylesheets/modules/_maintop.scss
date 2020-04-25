@@ -399,13 +399,11 @@ $maincolor: #3CCACE;
       padding: 0;
       &__head{
         text-align: center;
-        a{
+        h3 {
           font-size: 24px;
           text-decoration: none;
           color: $maincolor;
-          h3 {
-            font-weight: bold;
-          }
+         font-weight: bold;
         }
       }
     }
@@ -413,9 +411,10 @@ $maincolor: #3CCACE;
       width: 780px;
       margin: 26px auto;
       display: flex;
-      justify-content: space-around;
+      flex-wrap: wrap;
       &__list{
         width: 220px;
+        margin: 10px 20px 60px 20px;
         display: inline-block;
         float: left;
         a{
