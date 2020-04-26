@@ -59,7 +59,7 @@ class Mypages::CardsController < ApplicationController
         metadata: {user_id: current_user.id}
       )
       # Payjpに登録できたので、cardモデルに登録する
-      @card = Card.new(user_id: current_user.id, payjp_id: customer.id)
+      @card = Card.new(user_id: current_user.id, payjp_id: customer.id, token_id: params[:payjpToken])
       if @card.save
         if request.referer&.include?("/registrations/step5")
           redirect_to controller: 'registrations', action: "step6"

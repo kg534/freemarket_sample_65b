@@ -16,7 +16,7 @@
           - if @card.present?
             %section.cards_add__box__block--info
               .cards_info
-                = image_tag @card_image, width: 36, height: 25, alt:'creditcard'
+                = image_tag(asset_path(@card_image), width: 36, height: 25, alt:'creditcard')
                 %p.cards_info__number
                   = "**** **** **** " + @card_info.last4 #クレジットカードの下4桁
                 %P.cards_info__date

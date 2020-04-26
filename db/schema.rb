@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_19_143945) do
+ActiveRecord::Schema.define(version: 2020_04_24_135634) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "postal_code", null: false
@@ -32,10 +32,11 @@ ActiveRecord::Schema.define(version: 2020_04_19_143945) do
   end
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "payjp_id", null: false
+    t.string "token_id"
     t.index ["user_id"], name: "index_cards_on_user_id"
   end
 
@@ -47,7 +48,7 @@ ActiveRecord::Schema.define(version: 2020_04_19_143945) do
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "src"
+    t.string "src", null: false
     t.bigint "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -74,8 +75,8 @@ ActiveRecord::Schema.define(version: 2020_04_19_143945) do
   end
 
   create_table "transactions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "product_id"
+    t.bigint "user_id", null: false
+    t.bigint "product_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_transactions_on_product_id"
