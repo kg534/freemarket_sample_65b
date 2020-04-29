@@ -51,6 +51,8 @@ class ProductsController < ApplicationController
     if @product[:brand_id] == nil
       @product.build_brand
     end
+    @category_child_array = @product.category.parent.siblings
+    @category_grandchild_array = @product.category.siblings
   end
 
   def update

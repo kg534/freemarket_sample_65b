@@ -42,15 +42,26 @@
           = @product.errors.full_messages_for(:detail).first
     .product--main__container__details
       %p.product--form__description 商品の詳細
-      .product__form--group
-        = f.label "カテゴリー"
-        %span 必須
-        %br
-        = f.select :category_id,@category_parent_array,{},{class:'product--main__container__details__category',id: 'product_parent_category_id'}
-      .product--main__container__details__category__child
-      .product--main__container__details__category__grandchild
-        .error_explanation
-          = @product.errors.full_messages_for(:category_id).first
+      -if @product.category_id == nil then
+        .product__form--group
+          = f.label "カテゴリー"
+          %span 必須
+          %br
+          = f.select :category_id,@category_parent_array,{},{class:'product--main__container__details__category',id: 'product_parent_category_id'}
+        .product--main__container__details__category__child
+        .product--main__container__details__category__grandchild
+          .error_explanation
+            = @product.errors.full_messages_for(:category_id).first
+      -else
+        .product__form--group
+          = f.label "カテゴリー"
+          %span 必須
+          %br
+          = f.select :category_id, options_for_select(@category_parent_array.map{|c|[c,{}]},@product.category.root.name),{},{class: 'product--main__container__details__category', id: 'product_parent_category_id'}
+        .product--main__container__details__category__child
+          = f.select :category_id, options_for_select(@category_child_array.map{|c|[c.name, c.id,{"data-category": c.id},'id'=>c[:id]]}, @product.category.parent.id), {}, {class: 'product--main__container__details__category__child__select', id: 'product_child_category_id'}
+        .product--main__container__details__category__grandchild
+          = f.select :category_id, options_for_select(@category_grandchild_array.map{|c|[c.name, c.id,{"data-category": c.id},'id'=>c[:id]]}, @product.category.id), {}, {class: 'product--main__container__details__category__grandchild__select', id: 'product_grandchild_category_id'}
       .product__form--group
         = f.label "ブランド"
         %span.default 任意
