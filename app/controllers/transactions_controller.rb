@@ -1,9 +1,8 @@
 class TransactionsController < ApplicationController
   require 'payjp'
-  before_action :set_card
+  before_action :set_card, :set_product
 
   def index
-    @product = Product.find(params[:product_id])
     @user = User.find(current_user.id)
     if @card.present?
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
@@ -35,8 +34,6 @@ class TransactionsController < ApplicationController
   end
 
   def done
-    @product = Product.find(params[:product_id])
-    @user = User.find(current_user.id)
     if @card.present?
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(@card.payjp_id)
@@ -67,7 +64,6 @@ class TransactionsController < ApplicationController
   end
 
   def pay
-    @product = Product.find(params[:product_id])
     price = @product.price.to_i
     # すでに購入されていないか？
     # if transactions.user_id.present?
@@ -103,4 +99,7 @@ class TransactionsController < ApplicationController
   def set_card
     @card = Card.find_by(user_id: current_user.id)
   end
+
+  def set_product
+    @product = Product.find(params[:product_id])
 end
