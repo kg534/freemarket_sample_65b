@@ -26,7 +26,15 @@ Rails.application.routes.draw do
       end
     end
     collection do
+      get 'get_category_child', defaults: { format: 'json' }
+      get 'get_category_grandchild', defaults: { format: 'json' }
       get 'search'
     end
+    resources :edit ,only: [:edit]
+      member do
+        get 'get_category_child', defaults: { format: 'json' }
+        get 'get_category_grandchild', defaults: { format: 'json' }
+      end
   end
+  resources :categories, only: [:new, :show]
 end

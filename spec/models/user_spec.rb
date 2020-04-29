@@ -9,55 +9,55 @@ RSpec.describe User, type: :model do
   it "ニックネームがなければ無効" do
     user = User.new(nickname: nil)
     user.valid?
-    expect(user.errors[:nickname]).to include("can't be blank")
+    expect(user.errors[:nickname]).to include("を入力してください")
   end
 
   it "メールアドレスがなければ無効" do
     user = User.new(email: nil)
     user.valid?
-    expect(user.errors[:email]).to include("can't be blank")
+    expect(user.errors[:email]).to include("を入力してください")
   end
 
   it "パスワードがなければ無効" do
     user = User.new(password: nil)
     user.valid?
-    expect(user.errors[:password]).to include("can't be blank")
+    expect(user.errors[:password]).to include("を入力してください")
   end
 
   it "苗字がなければ無効" do
     user = User.new(last_name: nil)
     user.valid?
-    expect(user.errors[:last_name]).to include("can't be blank")
+    expect(user.errors[:last_name]).to include("を入力してください")
   end
 
   it "名前がなければ無効" do
     user = User.new(first_name: nil)
     user.valid?
-    expect(user.errors[:first_name]).to include("can't be blank")
+    expect(user.errors[:first_name]).to include("を入力してください")
   end
 
   it "苗字カナがなければ無効" do
     user = User.new(j_last_name: nil)
     user.valid?
-    expect(user.errors[:j_last_name]).to include("can't be blank")
+    expect(user.errors[:j_last_name]).to include("を入力してください")
   end
 
   it "名前カナがなければ無効" do
     user = User.new(j_first_name: nil)
     user.valid?
-    expect(user.errors[:j_first_name]).to include("can't be blank")
+    expect(user.errors[:j_first_name]).to include("を入力してください")
   end
 
   it "生年月日がなければ無効" do
     user = User.new(birthday: nil)
     user.valid?
-    expect(user.errors[:birthday]).to include("can't be blank")
+    expect(user.errors[:birthday]).to include("を入力してください")
   end
 
   it "パスワードが6文字以下なら無効" do
     user = User.new(password: "111111")
     user.valid?
-    expect(user.errors[:password]).to include("is too short (minimum is 7 characters)")
+    expect(user.errors[:password]).to include("は7文字以上で入力してください")
   end
 
   it "苗字が全角以外なら無効" do
