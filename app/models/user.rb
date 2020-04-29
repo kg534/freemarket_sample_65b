@@ -9,7 +9,7 @@ class User < ApplicationRecord
   validate :zenkaku_j_lastname
   validate :zenkaku_j_firstname
   has_one :address
-  has_one :cards
+  has_one :card
   has_many :products, through: :transactions
 
   

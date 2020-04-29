@@ -3,4 +3,5 @@ class Card < ApplicationRecord
 
   validates :payjp_id, presence: true
   validates :user_id, presence: true 
+  validates :token_id, presence: true 
 end
