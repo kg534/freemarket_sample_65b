@@ -21,7 +21,7 @@
                   = "**** **** **** " + @card_info.last4 #クレジットカードの下4桁
                 %P.cards_info__date
                   = @exp_month.rjust(2, '0') + "/" + @exp_year
-                = link_to "削除する", "/mypages/users/:user_id/cards/:id", method: :delete, class:'cards_info__delete'
+                = link_to "削除する", mypages_user_card_path(@card.id, current_user.id), method: :delete, class:'cards_info__delete'
           - else
             %section.cards_add__box__block--btn
               = link_to new_mypages_user_card_path, class: 'add_link' do
