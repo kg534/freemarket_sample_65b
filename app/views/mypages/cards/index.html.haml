@@ -16,21 +16,21 @@
           - if @card.present?
             %section.cards_add__box__block--info
               .cards_info
-                = image_tag(asset_path('jcb-logomark-img-02.gif'),{alt: 'JCB', class: 'logo_jcb'})
+                = image_tag(asset_path(@card_image), width: 36, height: 25, alt:'creditcard')
                 %p.cards_info__number
-                  = "***********1234"
+                  = "**** **** **** " + @card_info.last4 #クレジットカードの下4桁
                 %P.cards_info__date
-                  = "10 / 22"
-                = link_to "削除する", "/", class: 'cards_info__delete'
+                  = @exp_month.rjust(2, '0') + "/" + @exp_year
+                = link_to "削除する", mypages_user_card_path(@card.id, current_user.id), method: :delete, class:'cards_info__delete'
           - else
             %section.cards_add__box__block--btn
               = link_to new_mypages_user_card_path, class: 'add_link' do
                 = icon("far", "credit-card")
                 %span.add_link__text クレジットカードを追加する
-            .cards_add__box__block--method 
-              = link_to root_path, class: 'method_link' do
-                %span.method_link--text 支払い方法について
-                = icon('fas', 'angle-right')
+          .cards_add__box__block--method 
+            = link_to root_path, class: 'method_link' do
+              %span.method_link--text 支払い方法について
+              = icon('fas', 'angle-right')
   -# フリマ広告
   = render partial: 'mypages/users/advertisement'
   -# フッター

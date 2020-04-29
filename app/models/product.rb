@@ -5,6 +5,7 @@ class Product < ApplicationRecord
   validates :images, presence: { message: 'がありません' }
 
   belongs_to :category
+  has_many :users, through: :transactions
 
   belongs_to :brand, optional: true
   accepts_nested_attributes_for :brand, allow_destroy: true

@@ -1,0 +1,55 @@
+.wrapper_purchase_done
+  %header.header_purchase_done
+    .header_purchase_done__box
+      = link_to root_path class: 'header_purchase_done__box__link' do
+        = image_tag(asset_path('logo.png'), alt: 'Freemarket', class: 'header_purchase_done__box__link--logo')
+  %main.main_purchase_done
+    %section.main_purchase_done__box
+      %ul.main_purchase_done__box__notice
+        %li.main_purchase_done__box__notice--icon
+          = icon("far", "clock")
+        %li.main_purchase_done__box__notice--text 発送をお待ちください
+      %p.main_purchase_done__box__sub_notice 出品者からの発送通知をお待ちください
+    %section.main_purchase_done__alert
+      %p.main_purchase_done__box__alert--text 購入が完了しました
+    %section.main_purchase_done__production
+      %ul.main_purchase_done__production__list
+        %li.main_purchase_done__production__list__image
+          = image_tag(asset_path('image02.jpg'), alt: 'ProuductImage', class: 'product_image_size')
+          -# = @product.images.src
+        %ul.main_purchase_done__production__list__sub_list
+          %li.main_purchase_done__production__list__sub_list--text
+            = @product.detail
+          %li.main_purchase_done__production__list__sub_list--price
+            = "¥#{@product.price} （税込） 送料込み"
+    %section.main_purchase_done__price
+      .main_purchase_done__price__box
+        .main_purchase_done__price__box--text 支払い金額
+        .main_purchase_done__price__box--money
+          = "¥#{@product.price}"
+    %section.main_purchase_done__address
+      .main_purchase_done__address__box
+        .main_purchase_done__address__box--shipping_address 配送先
+        .main_purchase_done__address__box--postal
+          = "〒#{@user.address.postal_code}"
+        .main_purchase_done__address__box--city
+          = "#{@user.address.prefecture} #{@user.address.city} #{@user.address.address_number} #{@user.address.building}"
+        .main_purchase_done__address__box--name
+          = "#{@user.last_name} #{@user.first_name}"
+    %section.main_purchase_done__pay
+      .main_purchase_done__pay__box
+        .main_purchase_done__pay__box--method 支払い方法
+        .main_purchase_done__pay__box--number
+          = "**** **** **** " + @card_info.last4
+        .main_purchase_done__pay__box--date
+          = "#{@exp_month.rjust(2, '0')} / #{@exp_year}" 
+        .main_purchase_done__pay__box--logo
+          = image_tag(asset_path(@card_image), width: 37, height: 26, alt:'creditcard', class: 'brand_logo_decoration')
+    %section.main_purchase_done__trading
+      .main_purchase_done__trading--text 商品の購入後は、
+      .main_purchase_done__trading--text 取引画面で配送状況の確認や
+      .main_purchase_done__trading--text メッセージのやりとりができます。
+      .main_purchase_done__trading--link
+        = link_to '取引画面をみる', '/', class: 'main_purchase_done__trading--link--btn'
+  .margin_space
+  = render partial: 'mypages/users/footer'

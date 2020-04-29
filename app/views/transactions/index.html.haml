@@ -1,0 +1,68 @@
+.wrapper_purchase
+  %header.header_purchase
+    %h1.header_purchase__header
+      = image_tag(asset_path('logo.png'),{alt: 'Freemarket', class: 'header_purchase__header--logo'})
+  %main.main_purchase
+    %section.main_purchase_section
+      %h1.main_purchase_section__text 購入内容の確認
+      %section.main_purchase_section__product
+        .main_purchase_section__product__box
+          .main_purchase_section__product__box--image
+            = image_tag(asset_path('image02.jpg'),{alt: '画像', class: 'image_size'})
+            -# = @product.images.src
+          .main_purchase_section__product__box--content
+            .purchase_content_text 
+              %span.text_decoration 29cm supreme×Nike air force 2 シュプリーム ナイキ
+              -# = @product.detail
+            .purchase_content_price
+              %span.price_decoration ¥25,000（税込）着払い
+              -# = @product.price.to_s + "（税込）" + "着払い"
+      %section.main_purchase_section__pay
+        = form_with model: @product, url: pay_product_transactions_path, method: :post, local: true do |form|
+          .main_purchase_section__pay__price
+            %ul.main_purchase_section__pay__price--display
+              %li.pay_text 支払い金額
+              %li.pay_price ¥25,000
+              -# = @product.price
+            %ul.main_purchase_section__pay__price--point
+              %li.point_btn
+                =icon("fas", "square")
+              -# %li= form.check_box :お気に入り, false, class: 'point_btn'
+              %li.point_text ポイントを使用（所持ポイント:0pt）
+          .main_purchase_section__pay__method
+            .main_purchase_section__pay__method__box
+              %h3.main_purchase_section__pay__method__box--text 支払い方法
+              - if @card.present?
+                %p.credit_card クレジットカード
+                %p.credit_number
+                  = " **** **** **** " + @card_info.last4
+                %p.credit_date
+                  = "有効期限 #{@exp_month.rjust(2, "0")} / #{@exp_year}"
+                .credit_brand
+                  = image_tag(asset_path(@card_image), width: 37, height: 26, alt:'creditcard', class: 'brand_logo_decoration')
+                .credit_change
+                  = link_to "変更する", mypages_user_cards_path(current_user.id), class: 'credit_change__link'
+              - else
+                = link_to new_mypages_user_card_path(current_user.id), class: 'credit_card_registration' do
+                  = icon("fas", "plus-circle")
+                  %span.registration_text 登録してください
+          .main_purchase_section__pay__address
+            .main_purchase_section__pay__address__box
+              %h3.main_purchase_section__pay__address__box--text 配送先
+              - if @user.address.present? 
+                .address_postal
+                  = "〒#{@user.address.postal_code}"
+                .address
+                  = "#{@user.address.prefecture} #{@user.address.city} #{@user.address.address_number} #{@user.address.building}"
+                .user_name
+                  = "#{@user.last_name} #{@user.first_name}"
+                .address_change
+                  = link_to '変更する', '/', class: 'address_change__link'
+              - else
+                = link_to '/', class: 'address_registration' do
+                  = icon("fas", "plus-circle")
+                  %span.registration_text 登録してください
+          .main_purchase_section__pay__btn
+            = form.submit '購入する', class: 'main_purchase_section__pay__btn--submit'
+  .margin_space
+  = render partial: 'mypages/users/footer'
