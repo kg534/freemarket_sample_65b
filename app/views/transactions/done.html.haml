@@ -15,8 +15,8 @@
     %section.main_purchase_done__production
       %ul.main_purchase_done__production__list
         %li.main_purchase_done__production__list__image
-          = image_tag(asset_path('image02.jpg'), alt: 'ProuductImage', class: 'product_image_size')
-          -# = @product.images.src
+          - @product.images.each do |image|
+            = image_tag(asset_path(image.src.url),{alt: '画像', class: 'image_size'})
         %ul.main_purchase_done__production__list__sub_list
           %li.main_purchase_done__production__list__sub_list--text
             = @product.detail
