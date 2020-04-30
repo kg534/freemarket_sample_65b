@@ -1,6 +1,7 @@
 class TransactionsController < ApplicationController
   require 'payjp'
-  before_action :set_card, :set_product
+  before_action :set_card
+  before_action :set_product
 
   def index
     if @card.present?
