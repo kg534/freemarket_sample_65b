@@ -114,3 +114,9 @@
       = f.submit "出品する", class: 'product--submit__btn'
       = link_to "もどる", root_path
       %p.product--form__note 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗難物などの販売は犯罪であり、法律により処罰される可能性があります。また出品をもちまして加盟店規約に同意したことになります。
+  
+  -if @product.errors.any?
+    :javascript
+      $(document).ready(function() {
+        history.pushState('', '', location.href + '/new')
+      });
