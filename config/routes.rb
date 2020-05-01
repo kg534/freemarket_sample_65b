@@ -15,11 +15,12 @@ Rails.application.routes.draw do
       resources :cards, only: [:index, :new, :create]
     end
   end
+  namespace :products do
+    resources :searches, only: :index
+  end
+
   get 'maintops', to: 'maintop#index'
   root to: "products#index"
   resources :products do
-    collection do
-      get 'search'
-    end
   end
 end

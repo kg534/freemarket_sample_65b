@@ -86,4 +86,11 @@ RSpec.describe Product, type: :model do
     product.valid?
     expect(product.errors[:status]).to include("can't be blank")
   end
+
+  context 'GET #index' do
+    it 'keywordが送られてきた場合' do
+    product = Product.where("name LIKE ?", "%#{params[:keyword]}%")
+    expect(assigns(:product)).to eq(product) 
+    end
+  end
 end

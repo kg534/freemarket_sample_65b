@@ -14,9 +14,9 @@ class Product < ApplicationRecord
   validates :name, :detail, :price, :user_id, presence: { message: '入力してください' }
   validates :condition, :shopping_charges, :delivery_area, :delivery_date, :status, :category_id, presence: { message: '選択してください' }
 
-  def self.search()
-    if serach
-      Product.where("name LIKE ?", "%#{serach}%")
+  def self.search(search)
+    if search
+      Product.where("name LIKE ?", "%#{search}%")
     else
       Product.all
     end
