@@ -8,9 +8,7 @@
       %section.main_purchase_section__product
         .main_purchase_section__product__box
           .main_purchase_section__product__box--image
-            -# = image_tag(asset_path('image02.jpg'),{alt: '画像', class: 'image_size'})
-            - @product.images.each do |image|
-              = image_tag(asset_path(image.src.url),{alt: '画像', class: 'image_size'})
+            = image_tag(asset_path(@product.images[0].src.url),{alt: '画像', class: 'image_size'})
           .main_purchase_section__product__box--content
             .purchase_content_text 
               -# %span.text_decoration 29cm supreme×Nike air force 2 シュプリーム ナイキ

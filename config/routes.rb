@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  root to: "products#index"
+
   devise_for :users, controllers: {
     registrations: 'users/registrations',
   }
@@ -15,8 +18,8 @@ Rails.application.routes.draw do
       resources :cards, only: [:index, :new, :create, :destroy]
     end
   end
+
   get 'maintops', to: 'maintop#index'
-  root to: "products#index"
   
   resources :products do
     resources :transactions, only: [:index] do
