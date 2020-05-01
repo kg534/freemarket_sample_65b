@@ -21,12 +21,12 @@
           %li.main_purchase_done__production__list__sub_list--text
             = @product.detail
           %li.main_purchase_done__production__list__sub_list--price
-            = "¥#{@product.price} （税込） 送料込み"
+            = "¥ #{@product.price.to_s(:delimited)}（税込）着払い"
     %section.main_purchase_done__price
       .main_purchase_done__price__box
         .main_purchase_done__price__box--text 支払い金額
         .main_purchase_done__price__box--money
-          = "¥#{@product.price}"
+          = "¥ #{@product.price.to_s(:delimited)}"
     %section.main_purchase_done__address
       .main_purchase_done__address__box
         .main_purchase_done__address__box--shipping_address 配送先
