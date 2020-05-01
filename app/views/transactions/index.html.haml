@@ -17,14 +17,14 @@
               = @product.detail
             .purchase_content_price
               -# %span.price_decoration ¥25,000（税込）着払い
-              = @product.price.to_s + "（税込）" + "着払い"
+              = "¥ #{@product.price.to_s(:delimited)}（税込）着払い"
       %section.main_purchase_section__pay
         = form_with model: @product, url: pay_product_transactions_path, method: :post, local: true do |form|
           .main_purchase_section__pay__price
             %ul.main_purchase_section__pay__price--display
               %li.pay_text 支払い金額
-              %li.pay_price ¥25,000
-              = @product.price
+              %li.pay_price
+                = "¥ #{@product.price.to_s(:delimited)}"
             %ul.main_purchase_section__pay__price--point
               %li.point_btn
                 =icon("fas", "square")
