@@ -11,10 +11,8 @@
             = image_tag(asset_path(@product.images[0].src.url),{alt: '画像', class: 'image_size'})
           .main_purchase_section__product__box--content
             .purchase_content_text 
-              -# %span.text_decoration 29cm supreme×Nike air force 2 シュプリーム ナイキ
               = @product.detail
             .purchase_content_price
-              -# %span.price_decoration ¥25,000（税込）着払い
               = "¥ #{@product.price.to_s(:delimited)}（税込）着払い"
       %section.main_purchase_section__pay
         = form_with model: @product, url: pay_product_transactions_path, method: :post, local: true do |form|
