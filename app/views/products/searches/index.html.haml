@@ -17,7 +17,7 @@
                 -if i == 0
                   = image_tag(asset_path(image.src.url), {alt: 'image', class: 'item_image'})
               .item_detail
-                %h3.item_detail__name= products.name
+                %h3.item_detail__name= products.name.truncate(10)
                 .item_detail__box
                   %ul.item_detail__box--list
                     %li.item_price= products.price.to_s(:delimited) + "円"
