@@ -18,6 +18,10 @@ Rails.application.routes.draw do
       resources :cards, only: [:index, :new, :create, :destroy]
     end
   end
+  
+  namespace :products do
+    resources :searches, only: :index
+  end
 
   get 'maintops', to: 'maintop#index'
   

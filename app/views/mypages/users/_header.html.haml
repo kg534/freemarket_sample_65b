@@ -4,7 +4,12 @@
     .header__inner--search
       %h1.title
         = link_to image_tag(asset_path('logo.png'), {alt: 'FURIMA', class: 'furima_icon'}), root_path, class: 'link_top_page'
-      = render partial: 'products/search'
+      .search_box
+        = form_with(url: products_searches_path, method: :get, local: true, class: 'search_box__form') do |form| 
+          = form.text_field :keyword, placeholder: "キーワードから探す", class: 'search_box__form--text'
+          %button{type: "submit", src: "icon-search1.png", class: 'search_box__form--btn'}
+            .search_box__icon
+              = image_tag 'icon-search 1.png', class: 'search_box__icon--search'
     .header__inner--nav
       %ul.nav_left
         %li.nav_left__category
