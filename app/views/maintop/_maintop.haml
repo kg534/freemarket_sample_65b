@@ -88,20 +88,21 @@
       - @lists.each do |list|
         .pickup-category__lists__list
           =link_to product_path(list.id) do
-            - list.images.each do |image|
-              = image_tag image.src.url, class: "pickup-category__lists__list__img"
-              .pickup-category__lists__list__body
-                .pickup-category__lists__list__body__name
-                  = list.name
-                .pickup-category__lists__list__body__details
-                  %ul
-                    %li
-                      - price = list.price
-                      = "#{price}円"
-                    %li
-                      %i.fas.fa-star
-                      0
-                  %p (税込)
+            - list.images.each_with_index do |image, i|
+              -if i == 0
+                = image_tag image.src.url, class: "pickup-category__lists__list__img"
+                .pickup-category__lists__list__body
+                  .pickup-category__lists__list__body__name
+                    = list.name
+                  .pickup-category__lists__list__body__details
+                    %ul
+                      %li
+                        - price = list.price
+                        = "#{price}円"
+                      %li
+                        %i.fas.fa-star
+                        0
+                    %p (税込)
 %aside.banner
   .banner__inner
     %h2.banner__inner__title だれでもかんたん、人生を変えるフリマアプリ
