@@ -4,17 +4,33 @@
       %h1.header-inner__main__logo
         = link_to image_tag(asset_path("logo.png")), "/"
       %form.header-inner__main__searchbox
-        %input.header-inner__main__searchbox__input{:name => "key", :placeholder => "キーワードから探す", :type => "text", :value => ""}
-        %button.header-inner__main__searchbox__iconbox{ :name => "search-button"}
-          = image_tag(asset_path("icon-search 1.png"), :class => "header-inner__main__searchbox__iconbox__image")
+        %input.header-inner__main__searchbox__input{name: "key", placeholder: "キーワードから探す", type: "text", value:""}
+        %button.header-inner__main__searchbox__iconbox{name: "search-button"}
+          = image_tag(asset_path("icon-search 1.png"), class: "header-inner__main__searchbox__iconbox__image")
     .header-inner__navi
       %ul.header-inner__navi__lists-left
         %li.header-inner__navi__lists-left__category
-          = link_to "カテゴリー", "#", :id => "list"
+          = link_to "カテゴリー", "#", id: "list"
+          .header-inner__navi__lists-left__category__tree
+            %ul.header-inner__navi__lists-left__category__tree__parent
+              - @parents.each do |parent|
+                %li.header-inner__navi__lists-left__category__tree__parent__item
+                  = link_to "#{parent.name}", category_path(parent), class: "header-inner__navi__lists-left__category__tree__parent__item__select", id: "#{parent.id}"
+            %ul.header-inner__navi__lists-left__category__tree__child
+              %li.header-inner__navi__lists-left__category__tree__child__item
+            %ul.header-inner__navi__lists-left__category__tree__grandchild
+              %li.header-inner__navi__lists-left__category__tree__grandchild__item
         %li.header-inner__navi__lists-left__brand
-          = link_to "ブランド", "#", :id => "brand-btn"
-      %ul.header-inner__navi__lists-right
-        %li.header-inner__navi__lists-right__login
-          = link_to "ログイン", "#"
-        %li.header-inner__navi__lists-right__new
-          = link_to "新規会員登録", "#"
+          = link_to "ブランド", "#", id: "brand-btn"
+      - if user_signed_in?
+        %ul.header-inner__navi__lists-right
+          %li.header-inner__navi__lists-right__logout
+            = link_to 'ログアウト', destroy_user_session_path, method: :delete
+          %li.header-inner__navi__lists-right__new
+            = link_to 'マイページ', mypages_user_path(current_user.id)
+      - else
+        %ul.header-inner__navi__lists-right
+          %li.header-inner__navi__lists-right__login
+            = link_to "ログイン", new_user_session_path
+          %li.header-inner__navi__lists-right__new
+            = link_to "新規会員登録", new_user_registration_path

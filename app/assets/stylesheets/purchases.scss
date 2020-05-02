@@ -1,0 +1,207 @@
+body{
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  color: #333;
+}
+
+.wrapper_purchase{
+  background-color: #f5f5f5f5;
+  color: #333;
+  .header_purchase{
+    height: 128px;
+    &__header{
+      margin: 0 auto;
+      &--logo{
+        display: block;
+        margin: 0 auto;
+        padding: 35px 0;
+        width: 190px;
+      }
+    }
+  }
+  .main_purchase{
+    .main_purchase_section{
+      background-color: #fff;
+      margin: 0 auto;
+      width: 700px;
+      &__text{
+        margin: 0 auto;
+        font-size: 22px;
+        text-align: center;
+        font-weight: bold;
+        border-bottom: 1px solid #f5f5f5;
+        padding: 32px;
+        line-height: 1.5;
+      }
+      &__product{
+        margin: 0 auto;
+        border-bottom: 1px solid #f5f5f5;
+        padding: 32px 16px;
+        &__box{
+          max-width: 343px;
+          display: flex;
+          margin: 0 auto;
+          &--image{
+            .image_size{
+              width: 80px;
+            }
+          }
+          &--content{
+            margin-left: 20px;
+            .purchase_content_text{
+              font-size: 14px;
+              line-height: 1.5;
+            }
+            .purchase_content_price{
+              font-size: 12px;
+              font-weight: bold;
+              margin-top: 8px;
+              line-height: 1.5;
+            }
+          }
+        }
+      }
+      .main_purchase_section__pay{
+        padding: 32px 16px 48px;
+        &__price{
+          max-width: 343px;
+          margin: 0 auto;
+          border-bottom: 1px solid #f5f5f5;
+          &--display{
+            display: flex;
+            justify-content: space-between;
+            list-style: none;
+            .pay_text{
+              font-size: 18px;
+              font-weight: bold;
+              padding-top: 11px;
+            }
+            .pay_price{
+              font-size: 30px;
+              font-weight: bold;
+              line-height: 30px;
+            }
+          }
+          &--point{
+            list-style: none;
+            display: flex;
+            margin: 24px 0 32px;
+            .point_btn{
+              .fas.fa-square{
+                font-size: 23px;
+                color: #ccc;
+                
+              }
+            }
+            .point_text{
+              margin-left: 8px;
+              color: #888;
+              font-size: 14px;
+              padding-top: 4px; 
+            }
+          }
+        }
+        &__method{
+          position: relative;
+          max-width: 343px;
+          margin: 0 auto;
+          &__box{
+            padding: 32px 0;
+            border-bottom: 1px solid #f5f5f5;
+            &--text{
+              font-size: 14px;
+              font-weight: bold;
+            }
+            .credit_card{
+              margin-top: 12px
+            }
+            .credit_number{
+              margin-top: 8px
+            }
+            .credit_date{
+              margin-top: 8px
+            }
+            .credit_brand{
+              margin-top: 10px;
+              .brand_logo_decoration{
+                align-items: middle;
+              }
+            }
+            .credit_card_registration{
+              display: block;
+              margin-top: 12px;
+              text-decoration: none;
+              color: #0099e8;
+            }
+          }
+          .credit_change{
+            position: absolute;
+            right: 0;
+            top: 32px;
+            &__link{
+              text-decoration: none;
+              color: #0099e8;
+            }
+          }
+        }
+        &__address{
+          max-width: 343px;
+          margin: 0 auto;
+          border-bottom: 1px solid #f5f5f5;
+          &__box{
+            padding: 32px 0;
+            position: relative;
+            &--text{
+              font-size: 14px;
+              font-weight: bold;
+            }
+            .address_postal{
+              margin-top: 12px;
+            }
+            .address{
+              margin-top: 8px;
+              white-space: nowrap;
+            }
+            .user_name{
+              margin-top: 8px;
+            }
+            .address_change{
+              position: absolute;
+              top: 32px;
+              right: 0;
+              &__link{
+                text-decoration: none;
+                color: #0099e8;
+              }
+            }
+            .address_registration{
+              display: block;
+              margin-top: 12px;
+              text-decoration: none;
+              color: #0099e8;
+            }
+          }
+        }
+        &__btn{
+          max-width: 343px;
+          margin: 0 auto;
+          padding-top: 32px;
+          &--submit{
+            display: block;
+            border: none;
+            padding: 12px;
+            background-color: #3CCACE;
+            color: #fff;
+            width: 100%;
+            text-align: center;
+            line-height: 1.5;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+  .margin_space{
+    height: 100px;
+    background-color: #f5f5f5f5;
+  }
+}

@@ -2,13 +2,16 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "./reset";
+@import "config/colors";
 @import "user";
 @import "login";
+@import "category";
 @import "mypage";
 @import "products";
-@import "font-awesome-sprockets";
-@import "font-awesome";
 @import "cards";
 @import "log_out";
 @import "search";
+@import "modules/flash";
+@import "purchases";
+@import "dones";
 

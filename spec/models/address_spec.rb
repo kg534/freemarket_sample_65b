@@ -24,7 +24,7 @@ RSpec.describe Address, type: :model do
       postal_code: nil
     )
     address.valid?
-    expect(address.errors[:postal_code]).to include("can't be blank")
+    expect(address.errors[:postal_code]).to include("を入力してください")
   end
 
   it "都道府県がなければ無効" do
@@ -33,7 +33,7 @@ RSpec.describe Address, type: :model do
       prefecture: nil
     )
     address.valid?
-    expect(address.errors[:prefecture]).to include("can't be blank")
+    expect(address.errors[:prefecture]).to include("を入力してください")
   end
 
   it "市区町村がなければ無効" do
@@ -42,7 +42,7 @@ RSpec.describe Address, type: :model do
       city: nil
     )
     address.valid?
-    expect(address.errors[:city]).to include("can't be blank")
+    expect(address.errors[:city]).to include("を入力してください")
   end
 
   it "番地がなければ無効" do
@@ -51,6 +51,6 @@ RSpec.describe Address, type: :model do
       address_number: nil
     )
     address.valid?
-    expect(address.errors[:address_number]).to include("can't be blank")
+    expect(address.errors[:address_number]).to include("を入力してください")
   end
 end

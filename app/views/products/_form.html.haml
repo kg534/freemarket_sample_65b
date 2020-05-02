@@ -14,14 +14,16 @@
           %label.js-file_group{"data-index": "#{image.index}"}
             = image.file_field :src, class: 'js-file'
             %br/
-            .js-remove 削除
+            .js.post{"data-index": "#{image.index}"} 投稿
+            .js.remove{"data-index": "#{image.index}"} 削除
           - if @product.persisted?
             = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
         - if @product.persisted?
           %label.js-file_group{"data-index": "#{@product.images.count}"}
             = file_field_tag :src, name: "product[images_attributes][#{@product.images.count}][src]", class: 'js-file'
-            .js-remove 削除
-        .error_explanation
+            .js.post{"data-index": "#{@product.images.count}"} 投稿
+            .js.remove{"data-index": "#{@product.images.count}"} 削除
+        .error_explanation-image
           = @product.errors.full_messages_for(:images).first
     .product--main__container__description
       .product__form--group
@@ -40,13 +42,28 @@
           = @product.errors.full_messages_for(:detail).first
     .product--main__container__details
       %p.product--form__description 商品の詳細
-      .product__form--group
-        = f.label "カテゴリー"
-        %span 必須
-        %br
-        = f.collection_select :category_id, Category.all, :id, :name, prompt: '選択してください'
-        .error_explanation
-          = @product.errors.full_messages_for(:category_id).first
+      -if @product.id == nil then
+        .product__form--group
+          = f.label "カテゴリー"
+          %span 必須
+          %br
+          = f.select :category_id,@category_parent_array,{},{class:'product--main__container__details__category',id: 'product_parent_category_id'}
+        .product--main__container__details__category__child
+        .product--main__container__details__category__grandchild
+          .error_explanation
+            = @product.errors.full_messages_for(:category_id).first
+      -else
+        .product__form--group
+          = f.label "カテゴリー"
+          %span 必須
+          %br
+          = f.select :category_id, options_for_select(@category_parent_array.map{|c|[c,{}]},@product.category.root.name),{},{class: 'product--main__container__details__category', id: 'product_parent_category_id'}
+        .product--main__container__details__category__child
+          = f.select :category_id, options_for_select(@category_child_array.map{|c|[c.name, c.id,{"data-category": c.id},'id'=>c[:id]]}, @product.category.parent.id), {}, {class: 'product--main__container__details__category__child__select', id: 'product_child_category_id'}
+        .product--main__container__details__category__grandchild
+          = f.select :category_id, options_for_select(@category_grandchild_array.map{|c|[c.name, c.id,{"data-category": c.id},'id'=>c[:id]]}, @product.category.id), {}, {class: 'product--main__container__details__category__grandchild__select', id: 'product_grandchild_category_id'}
+          .error_explanation
+            = @product.errors.full_messages_for(:category_id).first
       .product__form--group
         = f.label "ブランド"
         %span.default 任意
@@ -97,3 +114,9 @@
       = f.submit "出品する", class: 'product--submit__btn'
       = link_to "もどる", root_path
       %p.product--form__note 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗難物などの販売は犯罪であり、法律により処罰される可能性があります。また出品をもちまして加盟店規約に同意したことになります。
+  
+  -if @product.errors.any?
+    :javascript
+      $(document).ready(function() {
+        history.pushState('', '', location.href + '/new')
+      });

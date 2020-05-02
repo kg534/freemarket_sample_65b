@@ -1,0 +1,21 @@
+.notification {
+  .notice {
+    background-color: $light_blue;
+    color: $white;
+    text-align: center;
+    height: 28px;
+    font-size: 17px;
+    line-height: 28px;
+    font-weight: bold;
+  }
+
+  .alert {
+    background-color: $alert_orange;
+    color: $white;
+    text-align: center;
+    height: 28px;
+    font-size: 17px;
+    line-height: 28px;
+    font-weight: bold;
+  }
+}

@@ -135,7 +135,7 @@ $(document).on('turbolinks:load', function() {
 
 
 // 購入した商品 タブ 切り替え
-$(document).on('turbolinks:load', function() {
+$(document).ready(function() {
   $('.purchase_box__tab').click(function(){
     $('.choise').removeClass('choise');
     $(this).addClass('choise');

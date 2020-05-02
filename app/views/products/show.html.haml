@@ -26,7 +26,13 @@
           %tr 
             %th{ bgcolor: "#EEEEEE" }  カテゴリー
             %td
-              = link_to @product.category.name, '#'
+              = @product.category.root.name
+              %br
+              %br
+              = @product.category.parent.name
+              %br
+              %br
+              = @product.category.name
           %tr 
             %th ブランド
             - if @product.brand_id?
@@ -52,7 +58,7 @@
             = link_to '編集', edit_product_path(@product), class: 'btn btn-link'
             = link_to '削除', product_path(@product), method: :delete, class: 'btn btn-link'
           - else
-            = link_to '商品購入', '#', class: 'btn btn-link'
+            = link_to '商品購入', product_transactions_path(@product.id), class: 'btn btn-link'
           = link_to 'もどる', root_path, class: 'btn btn-link'
         .productBox__optional
           .productBox__optional__likeBtn
@@ -80,16 +86,16 @@
           = link_to '後ろの商品', '#'
           %i.fa.fa-angle-right
       .relatedItems
-        = link_to "#{@product.category.name}をもっと見る", '#'
+        -# = link_to "#{@product.category.name}をもっと見る", '#'
 %aside.banner
   .banner__inner
     %h2.banner__inner__title だれでもかんたん、人生を変えるフリマアプリ
     %p.banner__inner__text 今すぐ無料ダウンロード！
     .banner__inner__icon
-      = link_to image_tag("/assets/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg"), "#", :class => 'banner__inner__icon__btn-apple'
-      = link_to image_tag("/assets/google-play-badge.png"), "#", :class => 'banner__inner__icon__btn-google'
+      = link_to image_tag("/assets/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg"), "#", class: 'banner__inner__icon__btn-apple'
+      = link_to image_tag("/assets/google-play-badge.png"), "#", class: 'banner__inner__icon__btn-google'
 = link_to "#" do
   .purchase-btn
     %span.purchase-btn__text 出品する
-    = image_tag("/assets/icon_camera.png", :class => "purchase-btn__icon")
+    = image_tag(asset_path("icon_camera.png"), class: "purchase-btn__icon")
 = render "maintop/footer"
