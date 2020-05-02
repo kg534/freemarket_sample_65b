@@ -20,7 +20,7 @@
                 %h3.item_detail__name= products.name
                 .item_detail__box
                   %ul.item_detail__box--list
-                    %li.item_price= products.price.to_s + "円"
+                    %li.item_price= products.price.to_s(:delimited) + "円"
                     %li.item_favorite
                       = icon("far", "heart") + "0"
                   %p.item_tax (税込)
