@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root to: "products#index"
+  root to: "maintop#index"
 
   devise_for :users, controllers: {
     registrations: 'users/registrations',
