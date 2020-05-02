@@ -82,27 +82,35 @@ $maincolor: #3CCACE;
           width: 140px;
         }
       }
-      &__searchbox{
-        display: flex;
-        margin-bottom: 5px;
+      .search_box{
         width: 100%;
-        &__input{
-          width: calc(100% - 26px);
-          height: 36px;
-          padding: 0 0 0 5px;
-        }
-        &__iconbox{
-          background-color: $maincolor;
-          width: 36px;
-          height: 36px;
-          padding: 8px;
-          border: 0;
-          cursor: pointer;
-          &__image{
-            width: 20px;
+        margin: auto;
+        &__form{
+          width: 100%;
+          display: flex;
+          margin-bottom: 5px;
+          &--text{
+            height: 36px;
+            width: calc(100% - 26px);
+            padding: 0 0 0 5px;
+          }
+          &--btn{
+            background-color:#3CCACE;
+            width: 36px;
+            border: 0px;
+            padding: 8px;
+            cursor: pointer;
+            .search_box__icon{
+              margin: 0px;
+              padding: 0px;
+              &--search{
+                width: 100%;
+                vertical-align: bottom;
+              }
+            }
           }
         }
-      }
+      }  
     }
     &__navi{
       font-size: 14px;
@@ -571,3 +579,4 @@ $maincolor: #3CCACE;
       width: 60%;
     }
   }
+

@@ -3,10 +3,12 @@
     .header-inner__main
       %h1.header-inner__main__logo
         = link_to image_tag('/assets/logo.png'), "/"
-      %form.header-inner__main__searchbox
-        %input.header-inner__main__searchbox__input{name: "key", placeholder: "キーワードから探す", type: "text", value: ""}
-        %button.header-inner__main__searchbox__iconbox{name: "search-button"}
-          = image_tag(asset_path("icon-search 1.png"), class: "header-inner__main__searchbox__iconbox__image")
+      .search_box
+        = form_with(url: products_searches_path, method: :get, local: true, class: 'search_box__form') do |form| 
+          = form.text_field :keyword, placeholder: "キーワードから探す", class: 'search_box__form--text'
+          %button{type: "submit", src: "icon-search1.png", class: 'search_box__form--btn'}
+            .search_box__icon
+              = image_tag 'icon-search 1.png', class: 'search_box__icon--search'
     .header-inner__navi
       %ul.header-inner__navi__lists-left
         %li.header-inner__navi__lists-left__category
