@@ -12,8 +12,6 @@ FactoryBot.define do
     brand
     user
     created_at {Faker::Time.between(from: DateTime.now - 2, to: DateTime.now)}
-    after(:create) do |image|
-      create_list(:image, 3, product: product)
-    end
+    images {[build(:image)]}
   end
 end

@@ -10,9 +10,10 @@
         %h2.product_search__text--title
           = params[:keyword]+" 商品一覧"
       %ul.product_search__list
-        - @products.each do |product|
+        - @products.images.each do |image|
           %li.product_search__list--item
             = link_to product_path(product.id) ,class: 'item_link' do
+              -# = image_tag(asset_path(image[0].src.url), {alt: 'image', class: 'item_image'})
               = image_tag asset_path('aaa.jpg'), class: 'item_image'
               .item_detail
                 %h3.item_detail__name= product.name
