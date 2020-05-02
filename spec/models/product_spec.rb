@@ -11,8 +11,7 @@ RSpec.describe Product, type: :model do
     category = @category
     brand = @brand
     user_a = @user
-    image = FactoryBot.create(:image)
-    product = FactoryBot.create(:product, image: image, user: user_a, category: category, brand: brand)
+    product = FactoryBot.create(:product, user: user_a, category: category, brand: brand)
     expect(product).to be_valid
   end
 
@@ -86,12 +85,5 @@ RSpec.describe Product, type: :model do
     product = Product.new(status: nil, user: user_a, category: category, brand: brand)
     product.valid?
     expect(product.errors[:status]).to include("選択してください")
-  end
-
-  context 'GET #index' do
-    it 'keywordが送られてきた場合' do
-    product = Product.where("name LIKE ?", "%#{params[:keyword]}%")
-    expect(assigns(:product)).to eq(product) 
-    end
   end
 end
