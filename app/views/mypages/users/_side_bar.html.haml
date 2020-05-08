@@ -14,7 +14,7 @@
           %span やることリスト
           =icon("fas", "angle-right")
       %li.side_top_bar__link
-        = link_to "mypages_user_path", class: 'link_tab' do
+        = link_to favorite_list_mypages_user_path(current_user.id), class: 'link_tab' do
           %span いいね！一覧
           =icon("fas", "angle-right")
       %li.side_top_bar__link

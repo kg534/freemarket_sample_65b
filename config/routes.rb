@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :users, only: :show do
       member do
         get 'logout'
+        get 'favorite_list' 
       end
       resources :cards, only: [:index, :new, :create, :destroy]
     end
@@ -32,6 +33,7 @@ Rails.application.routes.draw do
         post 'pay'
       end
     end
+    resource :favorites, only: [:create, :destroy]
     collection do
       get 'get_category_child', defaults: { format: 'json' }
       get 'get_category_grandchild', defaults: { format: 'json' }

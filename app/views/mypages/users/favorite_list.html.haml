@@ -1,0 +1,36 @@
+.wrapper
+  -# ヘッダー
+  = render partial: 'header'
+  -# メルカリ リンクバー
+  = render partial: 'link_bar'
+  -# メインページ
+  %main.main_box
+    -# サイドタブ
+    = render partial: 'side_bar'
+    -# メインタブ
+    .main_content
+      %section.favorite_box
+        %h2.favorite_box__text いいね！一覧
+        %ul.favorite_box__favorite
+          - @favorites.each do |favorite|
+            - favorite.product.images.each_with_index do |image, i|
+              %li.favorite_box__favorite--list
+                = link_to product_path(favorite.product.id), class: 'favorite_link' do
+                  %ul.favorite_product_box
+                    %li.favorite_product_box__image
+                      - if i == 0
+                        = image_tag(asset_path(image.src.url), {alt: 'image', class: 'favorite_product_box__image--size'})
+                    %li.favorite_product_box__detail
+                      .favorite_product_box__detail--name
+                        = favorite.product.name
+                      .favorite_product_box__detail--price
+                        = "¥#{favorite.product.price.to_s(:delimited)}"
+                  = icon("fas", "angle-right")
+      .paginate_box
+        = paginate(@favorites)
+  -# フリマ広告
+  = render partial: 'advertisement'
+  -# フッター
+  = render partial: 'footer'
+  -# 出品ボタン
+  = render partial: 'exibition_btn'

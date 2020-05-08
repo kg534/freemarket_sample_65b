@@ -1,0 +1,10 @@
+- if product.favorites.where(user_id: current_user.id).exists?
+  %button.favorite_box_release_btn{data: {release_id: product.id}}
+    = icon("far", "heart")
+    %span.release_count
+      = product.favorites.ids.count
+- else
+  %button.favorite_box_registration_btn{data: {registration_id: product.id}}
+    = icon("far", "heart") 
+    %span.registration_count
+      = product.favorites.ids.count
