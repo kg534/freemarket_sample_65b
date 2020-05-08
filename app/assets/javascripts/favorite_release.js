@@ -20,8 +20,6 @@ $(document).on('turbolinks:load', function(){
       $(heart_substract_tag).addClass('registration_count');
       $(substract_tag).removeAttr("data-release-id");
       $(substract_tag).attr("data-registration-id", release);
-      console.log(substract_tag);
-      console.log(heart_substract_tag);
     })
     .fail(function(){
       alert('エラーが発生しました');
