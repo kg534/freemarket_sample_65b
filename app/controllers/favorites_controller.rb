@@ -13,7 +13,7 @@ class FavoritesController < ApplicationController
     favorite.destroy
     respond_to do |format|
       format.html {redirect_back(fallback_location: root_path)}
-      format.json {flash[:alert] = 'お気に入りを解除しました'}
+      format.json 
     end
   end
 
