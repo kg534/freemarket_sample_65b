@@ -5,10 +5,13 @@
 
 .favorite_box_release_btn{
   position: absolute;
-  right: 12px;
-  bottom: 28px;
+  right: 10px;
+  bottom: 26px;
   text-decoration: none;
   color: red;
+  border: none;
+  background-color: #fff;
+  font-size: 13px;
   cursor: pointer;
   .far.fa-heart{
     margin-right: 3px;
@@ -20,10 +23,13 @@
 
 .favorite_box_registration_btn{
   position: absolute;
-  right: 12px;
-  bottom: 28px;
+  right: 10px;
+  bottom: 26px;
   text-decoration: none;
   color: #999999;
+  border: none; 
+  background-color: #fff;
+  font-size: 13px;
   cursor: pointer;
   &:hover{
     color: red;
