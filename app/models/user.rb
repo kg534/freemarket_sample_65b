@@ -11,6 +11,8 @@ class User < ApplicationRecord
   has_one :address
   has_one :card
   has_many :products, through: :transactions
+  has_many :products, through: :favorites, dependent: :destroy
+  has_many :favorites
 
   
   def zenkaku_last_name

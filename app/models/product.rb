@@ -15,6 +15,9 @@ class Product < ApplicationRecord
   validates :name, :detail, :price, :user_id, presence: { message: '入力してください' }
   validates :condition, :shopping_charges, :delivery_area, :delivery_date, :status, :category_id, presence: { message: '選択してください' }
 
+  has_many :users, through: :favorites, dependent: :destroy
+  has_many :favorites
+
   def self.search(search)
     if search
       Product.where("name LIKE ?", "%#{search}%")

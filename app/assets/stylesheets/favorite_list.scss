@@ -3,74 +3,60 @@
   font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
 }
 
-.product_search{
-  width: 700px;
-  margin: 0 auto;
+.favorite_box{
+  background-color: #fff;
   &__text{
-    background-color: #fff;
-    border-radius: 5px;
-    &--title{
-      background-color: #3CCACE;
-      color: #fff;
-      padding: 18px 10px 14px;
-      text-align: center;
-      font-size: 22px;
+      font-size: 24px;
       font-weight: bold;
-      border-radius: 5px 5px 0 0;
-    }
+      text-align: center;
+      height: 55px;
+      border-bottom: 1px solid #eee;
+      line-height: 55px;
   }
-  &__list{
-    margin: 30px 0;
-    word-break: break-all;
-    display: flex;
-    flex-wrap: wrap;
-    &--item{
-      position: relative;
-      width: 160px;
-      margin: 0 20px 20px 0;
-      .item_link{
+  &__favorite{
+    list-style: none;
+    &--list{
+      height: 82px;
+      border-bottom: 1px solid #eee;
+      .favorite_link{
+        position: relative;
         display: block;
+        padding: 16px;
+        color: #333;
         text-decoration: none;
-        width: 100%;
-        cursor: pointer;
-        .item_image{
-          display: block;
-          width: 160px;
-          height: 130px;
-        }
-        .item_detail{
-          background-color: #fff;
-          color: #333;
-          width: 160px;
-          height: 75px;
-          padding: 8px 12px;
-          &__name{
-            overflow: hidden;
-            font-size: 14px;
-            line-height: 1.5;
-            text-align: left;
-          }
-          &__box{
-            font-size: 16px;
-            margin-top: 3px;
-            &--list{
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
+        min-height: 80px;
+        .favorite_product_box{
+          display: flex;
+          align-items: center;
+          height: 50px;
+          &__image{
+            &--size{
+              width: 50px;
+              height: 50px;
             }
           }
-          .item_tax{
-            text-align: left;
-            font-size: 10px;
-            margin-top: 5px;
+          &__detail{
+            margin-left: 20px;
+
+            &--name{
+              margin-bottom: 10px;
+            }
+            &--price{
+              font-weight: bold;
+            }
           }
+        }
+        .fas.fa-angle-right{
+          position: absolute;
+          right: 16px;
+          bottom: 25px;
+          font-size: 25px;
         }
       }
     }
-    :nth-child(4n){
-      margin: 0 0 20px 0;
-    }
   }
+}
+.paginate_box{
   .pagination{
     margin: 40px 0 0;
     text-align: center;

@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+}
+
+.favorite_box_release_btn{
+  position: absolute;
+  right: 12px;
+  bottom: 28px;
+  text-decoration: none;
+  color: red;
+  cursor: pointer;
+  .far.fa-heart{
+    margin-right: 3px;
+  }
+  .release_count{
+    color: #333; 
+  }
+}
+
+.favorite_box_registration_btn{
+  position: absolute;
+  right: 12px;
+  bottom: 28px;
+  text-decoration: none;
+  color: #999999;
+  cursor: pointer;
+  &:hover{
+    color: red;
+  }
+  .far.fa-heart{
+    margin-right: 3px;
+  }
+  .registration_count{
+    color: #333; 
+  }
+}
