@@ -10,9 +10,9 @@ $(document).on('turbolinks:load', function() {
 // いいね！ タグ (hover)
 $(document).on('turbolinks:load', function() {
   $('.nav_right__favorite--link').hover(function(){
-    $('.nav_right__favorite--link, .far.fa-heart').css('color', '#3CCACE');},
+    $('.nav_right__favorite--link, .fas.fa-heart').css('color', '#3CCACE');},
     function(){
-      $(this).css('color', '#333'), $('.far.fa-heart').css('color', '#ccc');
+      $(this).css('color', '#333'), $('.fas.fa-heart').css('color', '#ccc');
     });
 });
 

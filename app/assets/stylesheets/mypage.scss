@@ -146,7 +146,7 @@ body{
           padding-right: 0px;
           &--link{
             @include nav_link;
-            .far.fa-heart{
+            .fas.fa-heart{
               @include right_nav_icon;
             }
           }

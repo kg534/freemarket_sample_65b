@@ -2,7 +2,6 @@ class FavoritesController < ApplicationController
 
   def create
     Favorite.create(favorite_params)
-    flash[:notice] = 'お気に入り登録しました'
     respond_to do |format|
       format.html {redirect_back(fallback_location: root_path)}
       format.json 
@@ -12,10 +11,9 @@ class FavoritesController < ApplicationController
   def destroy
     favorite = Favorite.find_by(product_id: params[:product_id], user_id: current_user.id)
     favorite.destroy
-    flash[:alert] = 'お気に入りを解除しました'
     respond_to do |format|
       format.html {redirect_back(fallback_location: root_path)}
-      format.json
+      format.json {flash[:alert] = 'お気に入りを解除しました'}
     end
   end
 
