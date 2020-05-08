@@ -1,7 +1,6 @@
 $(document).on('turbolinks:load', function(){
   $('.product_search__list--item').on('click', '.favorite_box_release_btn', function(e){
     e.preventDefault();
-    console.log('いいい');
     let release = $(this).data('release-id');
     let substract_tag = $(this);
     let heart_substract_tag = $(this).children('.release_count');
@@ -25,7 +24,6 @@ $(document).on('turbolinks:load', function(){
       console.log(heart_substract_tag);
     })
     .fail(function(){
-      console.log('えええ');
       alert('エラーが発生しました');
     })
   })
